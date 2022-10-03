@@ -1,0 +1,194 @@
+{
+  "name": "hybrid-browser",
+  "version": "1.0.3",
+  "description": "A minimal web browser for the distributed web",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "npm run lint",
+    "start": "electron .",
+    "debug": "env NODE_ENV=debug electron --trace-uncaught .",
+    "builder": "electron-builder build --publish never",
+    "builder-all": "electron-builder build -mwl",
+    "lint": "standard --fix",
+    "preversion": "npm run test",
+    "postinstall": "npm run download-extensions && electron-builder install-app-deps",
+    "download-extensions": "node ./download-extensions.js"
+  },
+  "standard": {
+    "ignore": [
+      "bundle.js",
+      "bundle-markdown.js",
+      "bundle-json.js",
+      "bundle-gemini.js",
+      "bundle-ssb.js"
+    ]
+  },
+  "build": {
+    "npmRebuild": true,
+    "asar": true,
+    "asarUnpack": [
+      "app/extensions/**"
+    ],
+    "productName": "Hybrid Browser",
+    "appId": "browser.hybridware.app",
+    "files": [
+      "build/*",
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "html",
+        "name": "web page",
+        "role": "Viewer"
+      },
+      {
+        "ext": "md",
+        "name": "markdown",
+        "role": "Viewer"
+      },
+      {
+        "ext": "gemini",
+        "role": "Viewer"
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "protocols": [
+      {
+        "name": "hypercore-protocol",
+        "schemes": [
+          "hyper"
+        ],
+        "role": "Viewer"
+      },
+      {
+        "name": "webpages",
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "role": "Viewer"
+      },
+      {
+        "name": "gemini",
+        "schemes": [
+          "gemini"
+        ],
+        "role": "Viewer"
+      },
+      {
+        "name": "ipfs",
+        "schemes": [
+          "ipfs"
+        ],
+        "role": "Viewer"
+      },
+      {
+        "name": "bittorrent",
+        "schemes": [
+          "magnet",
+          "bt"
+        ],
+        "role": "Viewer"
+      },
+      {
+        "name": "SecureScuttlebutt",
+        "schemes": [
+          "ssb"
+        ],
+        "role": "Viewer"
+      }
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "mac": {
+      "darkModeSupport": true,
+      "gatekeeperAssess": false,
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "artifactName": "${name}-${version}-${os}-${arch}.${ext}",
+      "executableArgs": [
+        "--enable-accelerated-video"
+      ],
+      "target": [
+        "deb",
+        "AppImage",
+        "apk"
+      ],
+      "category": "Network;FileTransfer:P2P"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HybridWare/hybrid-browser.git"
+  },
+  "keywords": [
+    "dat",
+    "hypercore",
+    "hyper",
+    "hyperdrive",
+    "ipfs",
+    "browser",
+    "dweb"
+  ],
+  "author": "HybridWare <contact@hybridware.app>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/HybridWare/hybrid-browser/issues"
+  },
+  "homepage": "https://github.com/HybridWare/hybrid-browser#readme",
+  "devDependencies": {
+    "@netless/extension-flat": "^1.0.1",
+    "electron": "^20.1.2",
+    "electron-builder": "^22.9.1",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "chunk-fetch": "^20.0.1",
+    "create-desktop-shortcuts": "^1.7.0",
+    "data-uri-to-buffer": "^3.0.1",
+    "electron-extended-webextensions": "github:ducksandgoats/electron-extended-WebExtensions",
+    "fs-extra": "^9.0.1",
+    "gemini-fetch": "^1.0.0",
+    "gemini-to-html": "^1.0.0",
+    "list-fetch": "^21.0.3",
+    "log-fetch": "^19.0.7",
+    "mime": "^2.4.6",
+    "onion-fetch": "^1.0.2",
+    "rc": "^1.2.8",
+    "sanitize-filename": "^1.6.3",
+    "scoped-fs": "^1.4.1",
+    "whatwg-mimetype": "https://github.com/jsdom/whatwg-mimetype#v2.3.0",
+    "wrtc": "^0.4.7"
+  }
+}

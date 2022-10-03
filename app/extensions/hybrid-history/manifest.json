@@ -1,0 +1,13 @@
+{
+	"manifest_version": 2,
+	"name": "hybrid-history",
+	"version": "1.0",
+
+	"description": "The history tracking functionality for the Hybrid Browser",
+
+	"permissions": ["webNavigation"],
+
+	"background": {
+		"page": "background.html"
+	}
+}
