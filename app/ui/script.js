@@ -7,7 +7,11 @@ const search = $('#search')
 const find = $('#find')
 const actions = $('#actions')
 
-const currentWindow = window.getCurrentWindow()
+const checkWindow = document.getElementsByTagName('browser-actions')[0]
+if(!checkWindow.current){
+  checkWindow.current = window.getCurrentWindow()
+}
+const currentWindow = checkWindow.current
 
 const pageTitle = $('title')
 

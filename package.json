@@ -182,7 +182,7 @@
     "gemini-fetch": "^1.0.0",
     "gemini-to-html": "^1.0.0",
     "gopher-fetch": "^1.0.6",
-    "list-fetch": "^21.0.3",
+    "list-fetch": "^21.0.4",
     "log-fetch": "^19.0.7",
     "mime": "^2.4.6",
     "onion-fetch": "^1.0.2",
