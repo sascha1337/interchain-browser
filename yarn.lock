@@ -5669,10 +5669,10 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^21.0.4":
-  "integrity" "sha512-twUvLQ87Wjup/UjdUTzyWh9cGbj+ed3GWaB9vMHy437bLAB3nYx4InYkeaR4W1BqCwgN3dzyTaRD5LBZJX7NRw=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-21.0.4.tgz"
-  "version" "21.0.4"
+"list-fetch@^21.0.5":
+  "integrity" "sha512-eGfv3pF04BlQ4bYvAYLzeszBUNaUJ75QeOKMJt7y1GQTBQ/V6VMQc78y/Zj+0NBmQV7M3YtydWh3joMhwZGdSg=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-21.0.5.tgz"
+  "version" "21.0.5"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
