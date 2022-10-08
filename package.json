@@ -185,7 +185,7 @@
     "list-fetch": "^21.0.9",
     "log-fetch": "^19.0.7",
     "mime": "^2.4.6",
-    "onion-fetch": "^1.0.2",
+    "onion-fetch": "^2.0.1",
     "rc": "^1.2.8",
     "sanitize-filename": "^1.6.3",
     "scoped-fs": "^1.4.1",

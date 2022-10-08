@@ -65,8 +65,6 @@ class OmniBox extends HTMLElement {
       if (!isURL(rawURL)) {
         if (looksLikeIPFS(rawURL)) {
           url = makeIPFS(rawURL)
-        } else if (looksLikeIPNS(rawURL)) {
-          url = makeIPNS(rawURL)
         } else if (isBareLocalhost(rawURL)) {
           url = makeHttp(rawURL)
         } else if (looksLikeDomain(rawURL)) {
