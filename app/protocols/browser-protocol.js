@@ -31,7 +31,47 @@ module.exports = async function createHandler () {
     const { pathname, hostname } = parsed
     const toResolve = path.join(hostname, pathname)
 
-    if (hostname === 'about') {
+    if(hostname === 'about'){
+      const statusCode = 200
+
+      const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Allow-CSP-From': '*',
+        'Content-Type': 'text/html'
+      }
+
+      const data = `<html><head><title>about</title></head><body>
+      <p>This is a web browser for the peer to peer internet</p>
+      <p>
+      Hybrid uses the following protocols
+      <ul>
+      <li>Bittorrent | bt://</li>
+      <li>Tor | tor:// for http:// | tors:// for https://</li>
+      <li>IPFS | ipfs://</li>
+      <li>Hypercore | hyper://</li>
+      <li>Gemini | gemini://</li>
+      <li>Gopher | Gopher://</li>
+      </ul>
+      As p2p expands, we will add more protocols
+      </p>
+      <p>Some of my online names are the following
+      <ul>
+      <li>resession | https://github.com/resession</li>
+      <li>ducksandgoats | https://github.com/ducksandgoats</li>
+      <li>hybridware | https://github.com/HybridWare</li>
+      </ul>
+      </p>
+      <p>Repo for the browser is https://github.com/HybridWare/hybrid-browser</p>
+      <p>Message me anytime on these profiles</p>
+      </body></html>`
+
+      sendResponse({
+        statusCode,
+        headers,
+        data
+      })
+
+    } else if (hostname === 'info') {
       const statusCode = 200
 
       const packagesToRender = [

@@ -5546,16 +5546,16 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^22.0.2":
-  "integrity" "sha512-EZCQEX/pv/qQ03NbkbRCxNZ/fCQKUSO22kxMQP/sq7mWTCl6cCghzZe9LP8Q+ncE6UQzNNar5usuXLJhpmvRCg=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.2.tgz"
-  "version" "22.0.2"
+"list-fetch@^22.0.3":
+  "integrity" "sha512-oIi5M0fkFJwL6AyxZk5uj/LgGJUft/GEHPVHuY8CFOXpEewgl50MoV9tHBriM0hLmpUXPa7rEUIX8vq+3hnE+Q=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.3.tgz"
+  "version" "22.0.3"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
     "range-parser" "^1.2.1"
     "stream-async-iterator" "^2.0.0"
-    "torrentz" "^6.0.1"
+    "torrentz" "^6.0.2"
 
 "load-ip-set@^2.2.1":
   "integrity" "sha512-G3hQXehU2LTOp52e+lPffpK4EvidfjwbvHaGqmFcp4ptiZagR4xFdL+D08kMX906dxeqZyWhfonEjdUxrWcldg=="
@@ -8163,10 +8163,10 @@
   "resolved" "https://registry.npmjs.org/torrent-piece/-/torrent-piece-2.0.1.tgz"
   "version" "2.0.1"
 
-"torrentz@^6.0.1":
-  "integrity" "sha512-yCtZ6fJUJRCNIf0F/86GbZHrMjZ7PytYuN7XKN4xTIf7I+8kq90F/D1iQ3PrmQj7vydlRy1L4tpPrDc+Vy6GQA=="
-  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.1.tgz"
-  "version" "6.0.1"
+"torrentz@^6.0.2":
+  "integrity" "sha512-DNRMEjImqtHAWXxXHmG4/HrbvDq5wLqKOjRKo/H2Tjyrnfdok/jDMSXqNuLMhJpYFlsuM1A8XXkjUh6JKvWWhw=="
+  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.2.tgz"
+  "version" "6.0.2"
   dependencies:
     "bencode" "^2.0.2"
     "busboy" "^1.6.0"
@@ -8176,7 +8176,7 @@
     "parse-torrent" "^9.1.5"
     "simple-sha1" "^3.1.0"
     "uid" "^2.0.0"
-    "webtorrent" "^1.8.24"
+    "webtorrent" "^1.8.31"
     "wrtc" "^0.4.7"
 
 "truncate-utf8-bytes@^1.0.0":
@@ -8523,7 +8523,7 @@
     "ws" "^3.2.0"
     "xtend" "^4.0.0"
 
-"webtorrent@^1.8.24":
+"webtorrent@^1.8.31":
   "integrity" "sha512-kARgaJ9uYGkVJXR1Uyy1o6M4m0XzD+ep3WkVI4xjrMmC3ZmtXJr1vouBxtru0dZs6pIyTxiQooJFZYAfgJArBw=="
   "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.8.31.tgz"
   "version" "1.8.31"
