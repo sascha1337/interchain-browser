@@ -1685,19 +1685,19 @@
   "resolved" "https://registry.npmjs.org/bitfield/-/bitfield-4.1.0.tgz"
   "version" "4.1.0"
 
-"bittorrent-dht@^10.0.4":
-  "integrity" "sha512-Yx5cZXU4R+mUbxR2PbKdvOVTizOrePPF8NT3WGCXX5qzJVt8gF8gq9GMBWcmNjHUBYHVigDaRf030hxQ2dJWUg=="
-  "resolved" "https://registry.npmjs.org/bittorrent-dht/-/bittorrent-dht-10.0.4.tgz"
-  "version" "10.0.4"
+"bittorrent-dht@^10.0.6":
+  "integrity" "sha512-Odmfmo36/vr0E4PWicans0fesjCfRib2daGaYfB8WHljPTO/U2820EFOA9HBhzdzekGBhBHlSPVi6Jf9vu7/yQ=="
+  "resolved" "https://registry.npmjs.org/bittorrent-dht/-/bittorrent-dht-10.0.6.tgz"
+  "version" "10.0.6"
   dependencies:
     "bencode" "^2.0.3"
-    "debug" "^4.1.1"
-    "k-bucket" "^5.0.0"
-    "k-rpc" "^5.0.0"
+    "debug" "^4.3.4"
+    "k-bucket" "^5.1.0"
+    "k-rpc" "^5.1.0"
     "last-one-wins" "^1.0.4"
     "lru" "^3.1.0"
     "randombytes" "^2.1.0"
-    "record-cache" "^1.0.2"
+    "record-cache" "^1.2.0"
     "simple-sha1" "^3.1.0"
 
 "bittorrent-lsd@^1.1.1":
@@ -5389,7 +5389,7 @@
     "chrome-dns" "^1.0.0"
     "chrome-net" "^3.3.2"
 
-"k-rpc@^5.0.0":
+"k-rpc@^5.1.0":
   "integrity" "sha512-FGc+n70Hcjoa/X2JTwP+jMIOpBz+pkRffHnSl9yrYiwUxg3FIgD50+u1ePfJUOnRCnx6pbjmVk5aAeB1wIijuQ=="
   "resolved" "https://registry.npmjs.org/k-rpc/-/k-rpc-5.1.0.tgz"
   "version" "5.1.0"
@@ -5554,16 +5554,16 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^21.0.9":
-  "integrity" "sha512-+2JMjr1W8C2VAIfZOKMtTyQJS4lxFS2pC2itmWfFO/+Qcitvn0l0c46S0sLdrkMCCTq8WkXun7qovTUVq6b09g=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-21.0.9.tgz"
-  "version" "21.0.9"
+"list-fetch@^22.0.1":
+  "integrity" "sha512-+dTx6d/u7Hz51QZTuQz+daU52aiDZdc0jLtEerpS9VUCT0TTnzNplnaK3IB1KLzlXkIQBZfWr5Dmw9yXf/pC6Q=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.1.tgz"
+  "version" "22.0.1"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
     "range-parser" "^1.2.1"
     "stream-async-iterator" "^2.0.0"
-    "torrentz" "^6.0.0"
+    "torrentz" "^6.0.1"
 
 "load-ip-set@^2.2.1":
   "integrity" "sha512-G3hQXehU2LTOp52e+lPffpK4EvidfjwbvHaGqmFcp4ptiZagR4xFdL+D08kMX906dxeqZyWhfonEjdUxrWcldg=="
@@ -7080,7 +7080,7 @@
   "resolved" "https://registry.npmjs.org/reconnecting-websocket/-/reconnecting-websocket-4.4.0.tgz"
   "version" "4.4.0"
 
-"record-cache@^1.0.2", "record-cache@^1.1.0":
+"record-cache@^1.1.0", "record-cache@^1.2.0":
   "integrity" "sha512-kyy3HWCez2WrotaL3O4fTn0rsIdfRKOdQQcEJ9KpvmKmbffKVvwsloX063EgRUlpJIXHiDQFhJcTbZequ2uTZw=="
   "resolved" "https://registry.npmjs.org/record-cache/-/record-cache-1.2.0.tgz"
   "version" "1.2.0"
@@ -8156,11 +8156,11 @@
     "socks-proxy-agent" "^4.0.2"
 
 "torrent-discovery@^9.4.13":
-  "integrity" "sha512-HZD8nAxIejcGnzUyXRMhBnK0rYQCQ85vaaCzmzl2r3/vmj0M/b6JuO6yNhe1vyLOU3ZngzDYaHxCJjmAIa4wwg=="
-  "resolved" "https://registry.npmjs.org/torrent-discovery/-/torrent-discovery-9.4.13.tgz"
-  "version" "9.4.13"
+  "integrity" "sha512-IyzlrHctvqqKtN8Y2BMxNL3d2FLazs6pC2yzKOHJlXWYUFkLpZhZSaSZcAkfmZXgdjwq59N2umr1przsRDMzkA=="
+  "resolved" "https://registry.npmjs.org/torrent-discovery/-/torrent-discovery-9.4.14.tgz"
+  "version" "9.4.14"
   dependencies:
-    "bittorrent-dht" "^10.0.4"
+    "bittorrent-dht" "^10.0.6"
     "bittorrent-lsd" "^1.1.1"
     "bittorrent-tracker" "^9.19.0"
     "debug" "^4.3.4"
@@ -8171,10 +8171,10 @@
   "resolved" "https://registry.npmjs.org/torrent-piece/-/torrent-piece-2.0.1.tgz"
   "version" "2.0.1"
 
-"torrentz@^6.0.0":
-  "integrity" "sha512-vPCAuC7LOVJhVZaoflRsTIq56UOZyQ59QzZZ5O5B3O8q7iV+Txx5RBhad0FI9YONQEn7xGJljzldNDaWhCW0nA=="
-  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.0.tgz"
-  "version" "6.0.0"
+"torrentz@^6.0.1":
+  "integrity" "sha512-yCtZ6fJUJRCNIf0F/86GbZHrMjZ7PytYuN7XKN4xTIf7I+8kq90F/D1iQ3PrmQj7vydlRy1L4tpPrDc+Vy6GQA=="
+  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.1.tgz"
+  "version" "6.0.1"
   dependencies:
     "bencode" "^2.0.2"
     "busboy" "^1.6.0"
@@ -8532,14 +8532,14 @@
     "xtend" "^4.0.0"
 
 "webtorrent@^1.8.24":
-  "integrity" "sha512-vJbZYnmzSRwvHAXP6YGPsps69vux6ft6J6B0sFqGyqmIN28g5xK3z4Dvq0EZHRYz1z9egkvzY1Khs6XWlmGJCA=="
-  "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.8.30.tgz"
-  "version" "1.8.30"
+  "integrity" "sha512-kARgaJ9uYGkVJXR1Uyy1o6M4m0XzD+ep3WkVI4xjrMmC3ZmtXJr1vouBxtru0dZs6pIyTxiQooJFZYAfgJArBw=="
+  "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.8.31.tgz"
+  "version" "1.8.31"
   dependencies:
     "@webtorrent/http-node" "^1.3.0"
     "addr-to-ip-port" "^1.5.4"
     "bitfield" "^4.1.0"
-    "bittorrent-dht" "^10.0.4"
+    "bittorrent-dht" "^10.0.6"
     "bittorrent-protocol" "^3.5.5"
     "cache-chunk-store" "^3.2.2"
     "chrome-net" "^3.3.4"
