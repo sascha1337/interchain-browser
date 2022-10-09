@@ -5546,10 +5546,10 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^22.0.3":
-  "integrity" "sha512-oIi5M0fkFJwL6AyxZk5uj/LgGJUft/GEHPVHuY8CFOXpEewgl50MoV9tHBriM0hLmpUXPa7rEUIX8vq+3hnE+Q=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.3.tgz"
-  "version" "22.0.3"
+"list-fetch@^22.0.4":
+  "integrity" "sha512-V+3xq9taWFXFZw3y67rO5PiKEW8+LK2zQtbzHBK7AmTJwwNUH311wg6+kyQE5vHcVhIEBeCi38PFkXfOCgLpFw=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.4.tgz"
+  "version" "22.0.4"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
@@ -8147,7 +8147,7 @@
     "axios" "^0.25.0"
     "socks-proxy-agent" "^4.0.2"
 
-"torrent-discovery@^9.4.13":
+"torrent-discovery@^9.4.14":
   "integrity" "sha512-IyzlrHctvqqKtN8Y2BMxNL3d2FLazs6pC2yzKOHJlXWYUFkLpZhZSaSZcAkfmZXgdjwq59N2umr1przsRDMzkA=="
   "resolved" "https://registry.npmjs.org/torrent-discovery/-/torrent-discovery-9.4.14.tgz"
   "version" "9.4.14"
@@ -8524,9 +8524,9 @@
     "xtend" "^4.0.0"
 
 "webtorrent@^1.8.31":
-  "integrity" "sha512-kARgaJ9uYGkVJXR1Uyy1o6M4m0XzD+ep3WkVI4xjrMmC3ZmtXJr1vouBxtru0dZs6pIyTxiQooJFZYAfgJArBw=="
-  "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.8.31.tgz"
-  "version" "1.8.31"
+  "integrity" "sha512-PjtJn3sY4Uqb1PEuxID+Cps4AshUKZpo3EhkT14y1SySmMVHeSX2crwh1rXIGX3fJUeF0zM5iEg+Ic2mN4CFZw=="
+  "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.8.32.tgz"
+  "version" "1.8.32"
   dependencies:
     "@webtorrent/http-node" "^1.3.0"
     "addr-to-ip-port" "^1.5.4"
@@ -8567,7 +8567,7 @@
     "stream-with-known-length-to-buffer" "^1.0.4"
     "streamx" "^2.12.4"
     "throughput" "^1.0.1"
-    "torrent-discovery" "^9.4.13"
+    "torrent-discovery" "^9.4.14"
     "torrent-piece" "^2.0.1"
     "unordered-array-remove" "^1.0.2"
     "ut_metadata" "^3.5.2"
