@@ -5554,10 +5554,10 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^22.0.1":
-  "integrity" "sha512-+dTx6d/u7Hz51QZTuQz+daU52aiDZdc0jLtEerpS9VUCT0TTnzNplnaK3IB1KLzlXkIQBZfWr5Dmw9yXf/pC6Q=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.1.tgz"
-  "version" "22.0.1"
+"list-fetch@^22.0.2":
+  "integrity" "sha512-EZCQEX/pv/qQ03NbkbRCxNZ/fCQKUSO22kxMQP/sq7mWTCl6cCghzZe9LP8Q+ncE6UQzNNar5usuXLJhpmvRCg=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.2.tgz"
+  "version" "22.0.2"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
