@@ -79,6 +79,12 @@ class OmniBox extends HTMLElement {
       const searchID = Date.now()
       this.lastSearch = searchID
 
+      if(url.startsWith('bt') || url.startsWith('ipfs') || url.startsWith('hyper')){
+        this.deleteButton.setAttribute('disabled', false)
+      } else {
+        this.deleteButton.setAttribute('disabled', true)
+      }
+
       this.dispatchEvent(new CustomEvent('navigate', { detail: { url } }))
     })
     this.input.addEventListener('input', () => {
@@ -129,8 +135,6 @@ class OmniBox extends HTMLElement {
           check = 'hybrid://ipfs/#/?url=' + url.toString()
         } else if(url.protocol === 'hyper:'){
           check = 'hybrid://hyper/#/?url=' + url.toString()
-        } else if(url.protocol === 'tor:' || url.protocol === 'tors:'){
-          console.log('tor:// or tors:// does not be deleted')
         } else {
           console.log('protocol must be supported')
         }

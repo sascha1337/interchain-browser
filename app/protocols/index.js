@@ -87,17 +87,17 @@ async function setupProtocols (session) {
   globalProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
 
   // console.log('hyper start')
-  const { handler: hyperProtocolHandler, close: closeHyper } = await createHyperHandler(hyperOptions, session)
+  const { handler: hyperHandler, close: closeHyper } = await createHyperHandler(hyperOptions, session)
   onCloseHandlers.push(closeHyper)
-  sessionProtocol.registerStreamProtocol('hyper', hyperProtocolHandler)
-  globalProtocol.registerStreamProtocol('hyper', hyperProtocolHandler)
+  sessionProtocol.registerStreamProtocol('hyper', hyperHandler)
+  globalProtocol.registerStreamProtocol('hyper', hyperHandler)
   // console.log('hyper finish')
 
   // console.log('ipfs start')
-  const { handler: ipfsProtocolHandler, close: closeIPFS } = await createIPFSHandler(ipfsOptions, session)
+  const { handler: ipfsHandler, close: closeIPFS } = await createIPFSHandler(ipfsOptions, session)
   onCloseHandlers.push(closeIPFS)
-  sessionProtocol.registerStreamProtocol('ipfs', ipfsProtocolHandler)
-  globalProtocol.registerStreamProtocol('ipfs', ipfsProtocolHandler)
+  sessionProtocol.registerStreamProtocol('ipfs', ipfsHandler)
+  globalProtocol.registerStreamProtocol('ipfs', ipfsHandler)
   // console.log('ipfs finish')
 
   // console.log('bt start')

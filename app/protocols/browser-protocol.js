@@ -20,7 +20,6 @@ const CHECK_PATHS = [
 ]
 
 module.exports = async function createHandler () {
-  return { handler: protocolHandler, close }
 
   function close () {}
 
@@ -40,7 +39,7 @@ module.exports = async function createHandler () {
         'Content-Type': 'text/html'
       }
 
-      const data = `<html><head><title>about</title></head><body>
+      const htmlData = `<html><head><title>about</title></head><body>
       <p>This is a web browser for the peer to peer internet</p>
       <p>
       Hybrid uses the following protocols
@@ -50,7 +49,7 @@ module.exports = async function createHandler () {
       <li>IPFS | ipfs://</li>
       <li>Hypercore | hyper://</li>
       <li>Gemini | gemini://</li>
-      <li>Gopher | Gopher://</li>
+      <li>Gopher | gopher://</li>
       </ul>
       As p2p expands, we will add more protocols
       </p>
@@ -65,12 +64,13 @@ module.exports = async function createHandler () {
       <p>Message me anytime on these profiles</p>
       </body></html>`
 
-      sendResponse({
+      const data = intoStream(htmlData)
+
+      return sendResponse({
         statusCode,
         headers,
         data
       })
-
     } else if (hostname === 'info') {
       const statusCode = 200
 
@@ -101,13 +101,11 @@ module.exports = async function createHandler () {
         'Content-Type': 'application/json'
       }
 
-      sendResponse({
+      return sendResponse({
         statusCode,
         headers,
         data
       })
-
-      return
     } else if ((hostname === 'theme') && (pathname === '/vars.css')) {
       const statusCode = 200
 
@@ -136,13 +134,11 @@ ${themes}
         'Content-Type': 'text/css'
       }
 
-      sendResponse({
+      return sendResponse({
         statusCode,
         headers,
         data
       })
-
-      return
     }
 
     try {
@@ -160,7 +156,7 @@ ${themes}
         'Content-Type': contentType
       }
 
-      sendResponse({
+      return sendResponse({
         statusCode,
         headers,
         data
@@ -177,13 +173,14 @@ ${themes}
         'Content-Type': 'text/html'
       }
 
-      sendResponse({
+      return sendResponse({
         statusCode,
         headers,
         data
       })
     }
   }
+  return { handler: protocolHandler, close }
 }
 
 async function resolveFile (path) {
