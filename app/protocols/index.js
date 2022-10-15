@@ -39,9 +39,9 @@ const createHyperHandler = require('./hyper-protocol')
 const createTorHandler = require('./tor-protocol')
 const createIPFSHandler = require('./ipfs-protocol')
 const createBrowserHandler = require('./browser-protocol')
-const createGeminiHandler = require('./gemini-protocol')
+// const createGeminiHandler = require('./gemini-protocol')
 const createBTHandler = require('./bt-protocol')
-const createGopherHandler = require('./gopher-protocol')
+// const createGopherHandler = require('./gopher-protocol')
 const createMagnetHandler = require('./magnet-protocol')
 
 const onCloseHandlers = []
@@ -65,8 +65,8 @@ function registerPrivileges () {
     { scheme: 'tors', privileges: P2P_PRIVILEGES },
     { scheme: 'hybrid', privileges: BROWSER_PRIVILEGES },
     { scheme: 'magnet', privileges: LOW_PRIVILEGES },
-    { scheme: 'gopher', privileges: P2P_PRIVILEGES },
-    { scheme: 'gemini', privileges: P2P_PRIVILEGES }
+    // { scheme: 'gopher', privileges: P2P_PRIVILEGES },
+    // { scheme: 'gemini', privileges: P2P_PRIVILEGES }
   ])
 }
 
@@ -79,8 +79,8 @@ async function setupProtocols (session) {
   app.setAsDefaultProtocolClient('bt')
   app.setAsDefaultProtocolClient('tor')
   app.setAsDefaultProtocolClient('tors')
-  app.setAsDefaultProtocolClient('gopher')
-  app.setAsDefaultProtocolClient('gemini')
+  // app.setAsDefaultProtocolClient('gopher')
+  // app.setAsDefaultProtocolClient('gemini')
 
   const { handler: browserProtocolHandler } = await createBrowserHandler()
   sessionProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
@@ -117,11 +117,11 @@ async function setupProtocols (session) {
   sessionProtocol.registerStreamProtocol('tors', torHandler)
   globalProtocol.registerStreamProtocol('tors', torHandler)
 
-  const { handler: gopherProtocolHandler } = await createGopherHandler()
-  sessionProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
-  globalProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
+  // const { handler: gopherProtocolHandler } = await createGopherHandler()
+  // sessionProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
+  // globalProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
 
-  const { handler: geminiProtocolHandler } = await createGeminiHandler()
-  sessionProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
-  globalProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
+  // const { handler: geminiProtocolHandler } = await createGeminiHandler()
+  // sessionProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
+  // globalProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
 }
