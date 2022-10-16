@@ -6,7 +6,7 @@ class BrowserActions extends HTMLElement {
       this.current = window.getCurrentWindow()
     }
     // this.current = this.current ? this.current : window.getCurrentWindow()
-    this.renderLatest()
+    await this.renderLatest()
   }
 
   async renderLatest () {

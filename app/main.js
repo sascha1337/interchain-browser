@@ -28,12 +28,6 @@ process.on('SIGINT', () => app.quit())
 let extensions = null
 let windowManager = null
 
-// force disable hardware acceleration
-// app.disableHardwareAcceleration()
-
-// force enable hardware acceleration
-// app.commandLine.appendSwitch('force_high_performance_gpu')
-
 // Enable text to speech.
 // Requires espeak on Linux
 app.commandLine.appendSwitch('enable-speech-dispatcher')
