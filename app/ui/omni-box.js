@@ -27,6 +27,8 @@ class OmniBox extends HTMLElement {
           <input class="omni-box-input" title="Enter search params">
           <button class="omni-box-button" type="submit" title="Load page or Reload">⊙</button>
         </form>
+        <button class="omni-box-button omni-box-copy" title="Copy the current resource">↑</button>
+        <button class="omni-box-button omni-box-uncopy" title="Uncopy the current resource">↓</button>
         <button class="omni-box-button omni-box-delete" title="Delete the current resource">-</button>
         <button class="omni-box-button omni-box-open" title="Open a new window">+</button>
         <button class="omni-box-button omni-box-close" title="Close the current window">×</button>
@@ -41,6 +43,8 @@ class OmniBox extends HTMLElement {
     this.openButton = this.$('.omni-box-open')
     this.closeButton = this.$('.omni-box-close')
     this.deleteButton = this.$('.omni-box-delete')
+    this.copyButton = this.$('.omni-box-copy')
+    this.uncopyButton = this.$('.omni-box-uncopy')
 
     this.input.addEventListener('focus', () => {
       this.input.select()
@@ -130,11 +134,51 @@ class OmniBox extends HTMLElement {
         const url = new URL(this.getURL())
         let check = null
         if(url.protocol === 'bt:'){
-          check = 'hybrid://bt/#/?url=' + url.toString()
+          check = 'hybrid://handle/bt/remove/?url=' + url.toString()
         } else if(url.protocol === 'ipfs:'){
-          check = 'hybrid://ipfs/#/?url=' + url.toString()
+          check = 'hybrid://handle/ipfs/remove/?url=' + url.toString()
         } else if(url.protocol === 'hyper:'){
-          check = 'hybrid://hyper/#/?url=' + url.toString()
+          check = 'hybrid://handle/hyper/remove/?url=' + url.toString()
+        } else {
+          console.log('protocol must be supported')
+        }
+        if(check){
+          this.dispatchEvent(new CustomEvent('delete', {detail: {url: check}}))
+        }
+      } catch (err) {
+        console.error(err)
+      }
+    })
+    this.copyButton.addEventListener('click', () => {
+      try {
+        const url = new URL(this.getURL())
+        let check = null
+        if(url.protocol === 'bt:'){
+          check = 'hybrid://handle/bt/host/?url=' + url.toString()
+        } else if(url.protocol === 'ipfs:'){
+          check = 'hybrid://handle/ipfs/pin/?url=' + url.toString()
+        } else if(url.protocol === 'hyper:'){
+          check = 'hybrid://handle/hyper/mount/?url=' + url.toString()
+        } else {
+          console.log('protocol must be supported')
+        }
+        if(check){
+          this.dispatchEvent(new CustomEvent('delete', {detail: {url: check}}))
+        }
+      } catch (err) {
+        console.error(err)
+      }
+    })
+    this.uncopyButton.addEventListener('click', () => {
+      try {
+        const url = new URL(this.getURL())
+        let check = null
+        if(url.protocol === 'bt:'){
+          check = 'hybrid://handle/bt/unhost/?url=' + url.toString()
+        } else if(url.protocol === 'ipfs:'){
+          check = 'hybrid://handle/ipfs/unpin/?url=' + url.toString()
+        } else if(url.protocol === 'hyper:'){
+          check = 'hybrid://handle/hyper/unmount/?url=' + url.toString()
         } else {
           console.log('protocol must be supported')
         }
