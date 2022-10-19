@@ -82,46 +82,40 @@ async function setupProtocols (session) {
   app.setAsDefaultProtocolClient('gopher')
   app.setAsDefaultProtocolClient('gemini')
 
-  const { handler: browserProtocolHandler } = await createBrowserHandler()
-  sessionProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
-  globalProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
-
-  // console.log('hyper start')
-  const { handler: hyperHandler, close: closeHyper } = await createHyperHandler(hyperOptions, session)
-  onCloseHandlers.push(closeHyper)
-  sessionProtocol.registerStreamProtocol('hyper', hyperHandler)
-  globalProtocol.registerStreamProtocol('hyper', hyperHandler)
-  // console.log('hyper finish')
-
-  // console.log('ipfs start')
-  const { handler: ipfsHandler, close: closeIPFS } = await createIPFSHandler(ipfsOptions, session)
-  onCloseHandlers.push(closeIPFS)
-  sessionProtocol.registerStreamProtocol('ipfs', ipfsHandler)
-  globalProtocol.registerStreamProtocol('ipfs', ipfsHandler)
-  // console.log('ipfs finish')
-
-  // console.log('bt start')
   const { handler: btHandler, close: closeBT } = await createBTHandler(btOptions, session)
   onCloseHandlers.push(closeBT)
   sessionProtocol.registerStreamProtocol('bt', btHandler)
   globalProtocol.registerStreamProtocol('bt', btHandler)
-  // console.log('bt finish')
 
   const magnetHandler = await createMagnetHandler()
   sessionProtocol.registerStreamProtocol('magnet', magnetHandler)
   globalProtocol.registerStreamProtocol('magnet', magnetHandler)
 
-  const { handler: torHandler } = await createTorHandler(torOptions, session)
+  const { handler: hyperHandler, close: closeHyper } = await createHyperHandler(hyperOptions, session)
+  onCloseHandlers.push(closeHyper)
+  sessionProtocol.registerStreamProtocol('hyper', hyperHandler)
+  globalProtocol.registerStreamProtocol('hyper', hyperHandler)
+
+  const { handler: ipfsHandler, close: closeIPFS } = await createIPFSHandler(ipfsOptions, session)
+  onCloseHandlers.push(closeIPFS)
+  sessionProtocol.registerStreamProtocol('ipfs', ipfsHandler)
+  globalProtocol.registerStreamProtocol('ipfs', ipfsHandler)
+
+  const torHandler = await createTorHandler(torOptions, session)
   sessionProtocol.registerStreamProtocol('tor', torHandler)
   globalProtocol.registerStreamProtocol('tor', torHandler)
   sessionProtocol.registerStreamProtocol('tors', torHandler)
   globalProtocol.registerStreamProtocol('tors', torHandler)
 
-  const { handler: gopherProtocolHandler } = await createGopherHandler()
+  const gopherProtocolHandler = await createGopherHandler()
   sessionProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
   globalProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
 
-  const { handler: geminiProtocolHandler } = await createGeminiHandler()
+  const geminiProtocolHandler = await createGeminiHandler()
   sessionProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
   globalProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
+
+  const browserProtocolHandler = await createBrowserHandler({bt: btHandler, ipfs: ipfsHandler, hyper: hyperHandler})
+  sessionProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
+  globalProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
 }

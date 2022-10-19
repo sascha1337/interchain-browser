@@ -19,18 +19,135 @@ const CHECK_PATHS = [
   (path) => path.slice(0, -1) + '.html',
 ]
 
-module.exports = async function createHandler () {
+module.exports = async function createHandler (fetchHandlers) {
 
-  function close () {}
+  const bt = fetchHandlers.bt
+  const ipfs = fetchHandlers.ipfs
+  const hyper = fetchHandlers.hyper
 
-  async function protocolHandler (req, sendResponse) {
-    const { url } = req
+  return async function protocolHandler (req, sendResponse) {
+
+    const { url, headers: reqHeaders } = req
 
     const parsed = new URL(url)
-    const { pathname, hostname } = parsed
+    const { pathname, hostname, searchParams } = parsed
     const toResolve = path.join(hostname, pathname)
+    if(hostname === 'handle'){
+      if(!searchParams.has('url')){
+        return sendResponse({
+          statusCode: 400,
+          headers: mainRes,
+          data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+        })
+      }
 
-    if(hostname === 'about'){
+      const mainReq = !reqHeaders.accept || !reqHeaders.accept.includes('application/json')
+      const mainRes = mainReq ? 'text/html; charset=utf-8' : 'application/json; charset=utf-8'
+
+      try {
+        const splitPath = pathname.split('/').filter(Boolean)
+        if(splitPath[0] === 'bt'){
+          if(splitPath[1] === 'remove'){
+              const mainData = await bt(searchParams.get('url'), {method: 'DELETE'})
+              return sendResponse({
+                statusCode: mainData.statusCode,
+                headers: mainRes,
+                data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+              })
+          } else if(splitPath[1] === 'host'){
+            const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Host': 'true'}})
+            return sendResponse({
+              statusCode: mainData.statusCode,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            })
+          } else if(splitPath[1] === 'unhost'){
+            const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Host': 'false'}})
+            return sendResponse({
+              statusCode: mainData.statusCode,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            })
+          } else {
+            return sendResponse({
+              statusCode: 400,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+            })
+          }
+        } else if(splitPath[0] === '/ipfs'){
+          if(splitPath[1] === 'remove'){
+            const mainData = await ipfs(searchParams.get('url'), {method: 'DELETE'})
+            return sendResponse({
+              statusCode: mainData.statusCode,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            })
+        } else if(splitPath[1] === 'pin'){
+          const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'true'}})
+          return sendResponse({
+            statusCode: mainData.statusCode,
+            headers: mainRes,
+            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+          })
+        } else if(splitPath[1] === 'unpin'){
+          const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'false'}})
+          return sendResponse({
+            statusCode: mainData.statusCode,
+            headers: mainRes,
+            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+          })
+        } else {
+          return sendResponse({
+            statusCode: 400,
+            headers: mainRes,
+            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+          })
+        }
+        } else if(splitPath[0] === '/hyper'){
+          if(splitPath[1] === 'remove'){
+            const mainData = await hyper(searchParams.get('url'), {method: 'DELETE'})
+            return sendResponse({
+              statusCode: mainData.statusCode,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            })
+        } else if(splitPath[1] === 'mount'){
+          const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'true'}})
+          return sendResponse({
+            statusCode: mainData.statusCode,
+            headers: mainRes,
+            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+          })
+        } else if(splitPath[1] === 'unmount'){
+          const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'false'}})
+          return sendResponse({
+            statusCode: mainData.statusCode,
+            headers: mainRes,
+            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+          })
+        } else {
+            return sendResponse({
+              statusCode: 400,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+            })
+        }
+        } else {
+            return sendResponse({
+              statusCode: 400,
+              headers: mainRes,
+              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+            })
+        }
+      } catch (error) {
+        return sendResponse({
+          statusCode: 500,
+          headers: mainRes,
+          data: mainReq ? [`<html><head><title>${error.name}</title></head><body>${JSON.stringify(error.stack)}</body></html>`] : [JSON.stringify(error.stack)]
+        })
+      }
+    } else if(hostname === 'about'){
       const statusCode = 200
 
       const headers = {
@@ -180,7 +297,6 @@ ${themes}
       })
     }
   }
-  return { handler: protocolHandler, close }
 }
 
 async function resolveFile (path) {

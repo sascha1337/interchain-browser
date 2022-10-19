@@ -5,5 +5,5 @@ module.exports = async function createHandler () {
 
   const fetch = makeFetch({})
 
-  return { handler: fetchToHandler(fetch) }
+  return fetchToHandler(fetch)
 }

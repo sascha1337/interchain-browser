@@ -5,5 +5,5 @@ module.exports = async function createHandler (options, session) {
 
   const fetch = makeFetch(options)
 
-  return { handler: fetchToHandler(fetch, session) }
+  return fetchToHandler(fetch, session)
 }
