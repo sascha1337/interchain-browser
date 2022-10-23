@@ -154,7 +154,7 @@ class OmniBox extends HTMLElement {
         const url = new URL(this.getURL())
         let check = null
         if(url.protocol === 'bt:'){
-          check = 'hybrid://handle/bt/host/?url=' + url.toString()
+          check = 'hybrid://handle/bt/echo/?url=' + url.toString()
         } else if(url.protocol === 'ipfs:'){
           check = 'hybrid://handle/ipfs/pin/?url=' + url.toString()
         } else if(url.protocol === 'hyper:'){
@@ -174,7 +174,7 @@ class OmniBox extends HTMLElement {
         const url = new URL(this.getURL())
         let check = null
         if(url.protocol === 'bt:'){
-          check = 'hybrid://handle/bt/unhost/?url=' + url.toString()
+          check = 'hybrid://handle/bt/unecho/?url=' + url.toString()
         } else if(url.protocol === 'ipfs:'){
           check = 'hybrid://handle/ipfs/unpin/?url=' + url.toString()
         } else if(url.protocol === 'hyper:'){
