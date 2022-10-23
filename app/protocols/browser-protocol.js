@@ -54,15 +54,15 @@ module.exports = async function createHandler (fetchHandlers) {
                 headers: mainRes,
                 data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
               })
-          } else if(splitPath[1] === 'host'){
-            const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Host': 'true'}})
+          } else if(splitPath[1] === 'echo'){
+            const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'true'}})
             return sendResponse({
               statusCode: mainData.statusCode,
               headers: mainRes,
               data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
             })
-          } else if(splitPath[1] === 'unhost'){
-            const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Host': 'false'}})
+          } else if(splitPath[1] === 'unecho'){
+            const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'false'}})
             return sendResponse({
               statusCode: mainData.statusCode,
               headers: mainRes,
