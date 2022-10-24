@@ -14,5 +14,5 @@ module.exports = async function createHandler (options, session) {
     }
   }
   
-  return { handler: fetchToHandler(fetch, session), close }
+  return { handler: fetchToHandler(fetch, session), close, fetch }
 }

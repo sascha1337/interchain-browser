@@ -84,7 +84,7 @@ class OmniBox extends HTMLElement {
       this.lastSearch = searchID
 
       if(url.startsWith('bt') || url.startsWith('ipfs') || url.startsWith('hyper')){
-        this.deleteButton.setAttribute('disabled', false)
+        this.deleteButton.removeAttribute('disabled')
       } else {
         this.deleteButton.setAttribute('disabled', true)
       }

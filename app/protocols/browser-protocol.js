@@ -37,8 +37,10 @@ module.exports = async function createHandler (fetchHandlers) {
         return sendResponse({
           statusCode: 400,
           headers: mainRes,
-          data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+          data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
         })
+      } else {
+        console.log(searchParams.get('url'))
       }
 
       const mainReq = !reqHeaders.accept || !reqHeaders.accept.includes('application/json')
@@ -48,31 +50,33 @@ module.exports = async function createHandler (fetchHandlers) {
         const splitPath = pathname.split('/').filter(Boolean)
         if(splitPath[0] === 'bt'){
           if(splitPath[1] === 'remove'){
+            console.log('rannnnn')
               const mainData = await bt(searchParams.get('url'), {method: 'DELETE'})
+              console.log(mainData)
               return sendResponse({
                 statusCode: mainData.statusCode,
                 headers: mainRes,
-                data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+                data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
               })
           } else if(splitPath[1] === 'echo'){
             const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'true'}})
             return sendResponse({
               statusCode: mainData.statusCode,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
             })
           } else if(splitPath[1] === 'unecho'){
             const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'false'}})
             return sendResponse({
               statusCode: mainData.statusCode,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
             })
           } else {
             return sendResponse({
               statusCode: 400,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
             })
           }
         } else if(splitPath[0] === '/ipfs'){
@@ -81,27 +85,27 @@ module.exports = async function createHandler (fetchHandlers) {
             return sendResponse({
               statusCode: mainData.statusCode,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
             })
         } else if(splitPath[1] === 'pin'){
           const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'true'}})
           return sendResponse({
             statusCode: mainData.statusCode,
             headers: mainRes,
-            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
           })
         } else if(splitPath[1] === 'unpin'){
           const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'false'}})
           return sendResponse({
             statusCode: mainData.statusCode,
             headers: mainRes,
-            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
           })
         } else {
           return sendResponse({
             statusCode: 400,
             headers: mainRes,
-            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
           })
         }
         } else if(splitPath[0] === '/hyper'){
@@ -110,41 +114,41 @@ module.exports = async function createHandler (fetchHandlers) {
             return sendResponse({
               statusCode: mainData.statusCode,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
             })
         } else if(splitPath[1] === 'mount'){
           const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'true'}})
           return sendResponse({
             statusCode: mainData.statusCode,
             headers: mainRes,
-            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
           })
         } else if(splitPath[1] === 'unmount'){
           const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'false'}})
           return sendResponse({
             statusCode: mainData.statusCode,
             headers: mainRes,
-            data: mainReq ? [`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`] : [String(mainData.statusCode)]
+            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
           })
         } else {
             return sendResponse({
               statusCode: 400,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
             })
         }
         } else {
             return sendResponse({
               statusCode: 400,
               headers: mainRes,
-              data: mainReq ? [`<html><head><title>Hybrid</title></head><body>Error</body></html>`] : ['Error']
+              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
             })
         }
       } catch (error) {
         return sendResponse({
           statusCode: 500,
           headers: mainRes,
-          data: mainReq ? [`<html><head><title>${error.name}</title></head><body>${JSON.stringify(error.stack)}</body></html>`] : [JSON.stringify(error.stack)]
+          data: mainReq ? intoStream(`<html><head><title>${error.name}</title></head><body>${JSON.stringify(error.stack)}</body></html>`) : intoStream(JSON.stringify(error.stack))
         })
       }
     } else if(hostname === 'about'){

@@ -51,7 +51,7 @@ module.exports = function fetchToHandler (fetch, session) {
         data
       })
     } catch (e) {
-      console.log(e)
+      console.error(e)
       sendResponse({
         statusCode: 500,
         headers,

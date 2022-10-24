@@ -82,7 +82,7 @@ async function setupProtocols (session) {
   app.setAsDefaultProtocolClient('gopher')
   app.setAsDefaultProtocolClient('gemini')
 
-  const { handler: btHandler, close: closeBT } = await createBTHandler(btOptions, session)
+  const { handler: btHandler, close: closeBT, fetch: btFetch } = await createBTHandler(btOptions, session)
   onCloseHandlers.push(closeBT)
   sessionProtocol.registerStreamProtocol('bt', btHandler)
   globalProtocol.registerStreamProtocol('bt', btHandler)
@@ -91,12 +91,12 @@ async function setupProtocols (session) {
   sessionProtocol.registerStreamProtocol('magnet', magnetHandler)
   globalProtocol.registerStreamProtocol('magnet', magnetHandler)
 
-  const { handler: hyperHandler, close: closeHyper } = await createHyperHandler(hyperOptions, session)
+  const { handler: hyperHandler, close: closeHyper, fetch: hyperFetch } = await createHyperHandler(hyperOptions, session)
   onCloseHandlers.push(closeHyper)
   sessionProtocol.registerStreamProtocol('hyper', hyperHandler)
   globalProtocol.registerStreamProtocol('hyper', hyperHandler)
 
-  const { handler: ipfsHandler, close: closeIPFS } = await createIPFSHandler(ipfsOptions, session)
+  const { handler: ipfsHandler, close: closeIPFS, fetch: ipfsFetch } = await createIPFSHandler(ipfsOptions, session)
   onCloseHandlers.push(closeIPFS)
   sessionProtocol.registerStreamProtocol('ipfs', ipfsHandler)
   globalProtocol.registerStreamProtocol('ipfs', ipfsHandler)
@@ -115,7 +115,7 @@ async function setupProtocols (session) {
   sessionProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
   globalProtocol.registerStreamProtocol('gemini', geminiProtocolHandler)
 
-  const browserProtocolHandler = await createBrowserHandler({bt: btHandler, ipfs: ipfsHandler, hyper: hyperHandler})
+  const browserProtocolHandler = await createBrowserHandler({bt: btFetch, ipfs: ipfsFetch, hyper: hyperFetch})
   sessionProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
   globalProtocol.registerStreamProtocol('hybrid', browserProtocolHandler)
 }

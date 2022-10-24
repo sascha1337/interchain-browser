@@ -3767,6 +3767,17 @@
     "once" "^1.3.0"
     "path-is-absolute" "^1.0.0"
 
+"glob@^8.0.3":
+  "integrity" "sha512-ull455NHSHI/Y1FqGaaYFaLGkNMMJbavMrEGFXG/PGrg6y7sutWHUHrz6gy6WEBH6akM1M414dWKCNs+IhKdiQ=="
+  "resolved" "https://registry.npmjs.org/glob/-/glob-8.0.3.tgz"
+  "version" "8.0.3"
+  dependencies:
+    "fs.realpath" "^1.0.0"
+    "inflight" "^1.0.4"
+    "inherits" "2"
+    "minimatch" "^5.0.1"
+    "once" "^1.3.0"
+
 "global-agent@^3.0.0":
   "integrity" "sha512-PT6XReJ+D07JvGoxQMkT6qji/jVNfX/h364XHZOWeRzy64sSFr+xJ5OX7LI3b4MPQzdL4H8Y8M0xzPpsVMwA8Q=="
   "resolved" "https://registry.npmjs.org/global-agent/-/global-agent-3.0.0.tgz"
@@ -5543,16 +5554,16 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^22.0.8":
-  "integrity" "sha512-ep6inJDcdujdKV5TpmEnw+4Q5rCXqyswCXM3ctZ+KZ0AUzU1foofK1IfCoJ9RjRis3Gt3vUTCir8Ocu2Lr8vtw=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-22.0.8.tgz"
-  "version" "22.0.8"
+"list-fetch@^23.0.0":
+  "integrity" "sha512-k21hbC0AXq7PWHZX9tRsIY0okwblifr++ZlayamqBBvC8rLSvD0dLv4G/oNveViuPNPF91TpXMwVPvCltOEjuA=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.0.tgz"
+  "version" "23.0.0"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
     "range-parser" "^1.2.1"
     "stream-async-iterator" "^2.0.0"
-    "torrentz" "^6.0.3"
+    "torrentz" "^6.0.5"
 
 "load-ip-set@^2.2.1":
   "integrity" "sha512-G3hQXehU2LTOp52e+lPffpK4EvidfjwbvHaGqmFcp4ptiZagR4xFdL+D08kMX906dxeqZyWhfonEjdUxrWcldg=="
@@ -8199,16 +8210,17 @@
   "resolved" "https://registry.npmjs.org/torrent-piece/-/torrent-piece-2.0.1.tgz"
   "version" "2.0.1"
 
-"torrentz@^6.0.3":
-  "integrity" "sha512-sNAITxX3Fy6wqq021PWHNNcuyLnVXtbmfJMzpeBNPjDQP/fKo2Bsx4hQYdKvDvX1lRMSZH/X3OJ4W+o9bu7HVA=="
-  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.3.tgz"
-  "version" "6.0.3"
+"torrentz@^6.0.5":
+  "integrity" "sha512-7y4ehejsww2Gchmg6r65Q9UrA/kXY0HlmcJsMNlt8x1llr6z9FtI5DH2RYsj5t6mI4FeyVhPab+aIEJyQ0yABA=="
+  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.5.tgz"
+  "version" "6.0.5"
   dependencies:
     "bencode" "^2.0.2"
     "busboy" "^1.6.0"
     "create-torrent" "^5.0.6"
     "ed25519-supercop" "^2.0.1"
     "fs-extra" "^10.1.0"
+    "glob" "^8.0.3"
     "parse-torrent" "^9.1.5"
     "simple-sha1" "^3.1.0"
     "uid" "^2.0.0"
