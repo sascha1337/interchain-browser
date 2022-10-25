@@ -36,11 +36,9 @@ module.exports = async function createHandler (fetchHandlers) {
       if(!searchParams.has('url')){
         return sendResponse({
           statusCode: 400,
-          headers: mainRes,
+          headers: {'Content-Type': 'text/html; charset=utf-8'},
           data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
         })
-      } else {
-        console.log(searchParams.get('url'))
       }
 
       const mainReq = !reqHeaders.accept || !reqHeaders.accept.includes('application/json')
@@ -50,105 +48,121 @@ module.exports = async function createHandler (fetchHandlers) {
         const splitPath = pathname.split('/').filter(Boolean)
         if(splitPath[0] === 'bt'){
           if(splitPath[1] === 'remove'){
-            console.log('rannnnn')
               const mainData = await bt(searchParams.get('url'), {method: 'DELETE'})
-              console.log(mainData)
+              let showRes = ''
+              let seeRes
+              const reader = mainData.body.getReader();
+              while(!(seeRes = await reader.read()).done){
+                showRes = showRes + seeRes.value
+              }
               return sendResponse({
-                statusCode: mainData.statusCode,
-                headers: mainRes,
-                data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+                statusCode: mainData.status,
+                headers: {'Content-Type': 'text/html; charset=utf-8'},
+                data: intoStream(showRes)
               })
           } else if(splitPath[1] === 'echo'){
             const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'true'}})
             return sendResponse({
-              statusCode: mainData.statusCode,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+              statusCode: mainData.status,
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>Address: ${mainData.headers.get('X-Address')}\nSecret: ${mainData.headers.get('X-Secret')}\nHash: ${mainData.headers.get('X-Hash')}\nData: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
             })
           } else if(splitPath[1] === 'unecho'){
             const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'false'}})
             return sendResponse({
-              statusCode: mainData.statusCode,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+              statusCode: mainData.status,
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>Address: ${mainData.headers.get('X-Address')}\nSecret: ${mainData.headers.get('X-Secret')}\nHash: ${mainData.headers.get('X-Hash')}\nData: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
             })
           } else {
             return sendResponse({
               statusCode: 400,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`)
             })
           }
         } else if(splitPath[0] === '/ipfs'){
           if(splitPath[1] === 'remove'){
             const mainData = await ipfs(searchParams.get('url'), {method: 'DELETE'})
+            let showRes = ''
+            let seeRes
+            const reader = mainData.body.getReader();
+            while(!(seeRes = await reader.read()).done){
+              showRes = showRes + seeRes.value
+            }
             return sendResponse({
-              statusCode: mainData.statusCode,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+              statusCode: mainData.status,
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(showRes)
             })
         } else if(splitPath[1] === 'pin'){
           const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'true'}})
           return sendResponse({
-            statusCode: mainData.statusCode,
-            headers: mainRes,
-            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+            statusCode: mainData.status,
+            headers: {'Content-Type': 'text/html; charset=utf-8'},
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
           })
         } else if(splitPath[1] === 'unpin'){
           const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'false'}})
           return sendResponse({
-            statusCode: mainData.statusCode,
-            headers: mainRes,
-            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+            statusCode: mainData.status,
+            headers: {'Content-Type': 'text/html; charset=utf-8'},
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
           })
         } else {
           return sendResponse({
             statusCode: 400,
-            headers: mainRes,
-            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
+            headers: {'Content-Type': 'text/html; charset=utf-8'},
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`)
           })
         }
         } else if(splitPath[0] === '/hyper'){
           if(splitPath[1] === 'remove'){
             const mainData = await hyper(searchParams.get('url'), {method: 'DELETE'})
+            let showRes = ''
+            let seeRes
+            const reader = mainData.body.getReader();
+            while(!(seeRes = await reader.read()).done){
+              showRes = showRes + seeRes.value
+            }
             return sendResponse({
-              statusCode: mainData.statusCode,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+              statusCode: mainData.status,
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(showRes)
             })
         } else if(splitPath[1] === 'mount'){
           const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'true'}})
           return sendResponse({
-            statusCode: mainData.statusCode,
-            headers: mainRes,
-            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+            statusCode: mainData.status,
+            headers: {'Content-Type': 'text/html; charset=utf-8'},
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
           })
         } else if(splitPath[1] === 'unmount'){
           const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'false'}})
           return sendResponse({
-            statusCode: mainData.statusCode,
-            headers: mainRes,
-            data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>${mainData.statusCode}</body></html>`) : intoStream(String(mainData.statusCode))
+            statusCode: mainData.status,
+            headers: {'Content-Type': 'text/html; charset=utf-8'},
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
           })
         } else {
             return sendResponse({
               statusCode: 400,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`)
             })
         }
         } else {
             return sendResponse({
               statusCode: 400,
-              headers: mainRes,
-              data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
+              headers: {'Content-Type': 'text/html; charset=utf-8'},
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`)
             })
         }
       } catch (error) {
         return sendResponse({
           statusCode: 500,
-          headers: mainRes,
-          data: mainReq ? intoStream(`<html><head><title>${error.name}</title></head><body>${JSON.stringify(error.stack)}</body></html>`) : intoStream(JSON.stringify(error.stack))
+          headers: {'Content-Type': 'text/html; charset=utf-8'},
+          data: intoStream(`<html><head><title>${error.name}</title></head><body>${JSON.stringify(error.stack)}</body></html>`)
         })
       }
     } else if(hostname === 'about'){
