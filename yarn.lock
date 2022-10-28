@@ -5554,16 +5554,16 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^23.0.4":
-  "integrity" "sha512-z44SV9h24ZgKO39KceiqFsS0iSg67fkywqblz51QLCsWGFGDOZWSEXZDnr+rHE5RXP/yjNp9zLswkXr5kaUCDg=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.4.tgz"
-  "version" "23.0.4"
+"list-fetch@^23.0.5":
+  "integrity" "sha512-Eq0QxcOpCZxsPGjKcz2WNBt6c1ti8GaNdwjKOpXoDl6IC9/7NfcsrbZBdCn0E4iB3MWfdJwNHaSGYmGx/wPUKA=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.5.tgz"
+  "version" "23.0.5"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
     "range-parser" "^1.2.1"
     "stream-async-iterator" "^2.0.0"
-    "torrentz" "^7.0.1"
+    "torrentz" "^7.0.2"
 
 "load-ip-set@^2.2.1":
   "integrity" "sha512-G3hQXehU2LTOp52e+lPffpK4EvidfjwbvHaGqmFcp4ptiZagR4xFdL+D08kMX906dxeqZyWhfonEjdUxrWcldg=="
@@ -8210,10 +8210,10 @@
   "resolved" "https://registry.npmjs.org/torrent-piece/-/torrent-piece-2.0.1.tgz"
   "version" "2.0.1"
 
-"torrentz@^7.0.1":
-  "integrity" "sha512-wjlpXhsILRB7yLqNFCHTRB/mj7wnmoWEB3AE5VVuDD/JqjmXJn1O27Au79YuBG0GT45hz8GR3usPx7p5VO7Yww=="
-  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-7.0.1.tgz"
-  "version" "7.0.1"
+"torrentz@^7.0.2":
+  "integrity" "sha512-KvBgYLDj1qginSf8GbVvXoIuj4yRlqwUTEqRD1rf6iJNmKgkrsMP/XlRpyWWkjIohMMy2BcEb/QwXEqkJLk02w=="
+  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-7.0.2.tgz"
+  "version" "7.0.2"
   dependencies:
     "bencode" "^2.0.2"
     "busboy" "^1.6.0"
