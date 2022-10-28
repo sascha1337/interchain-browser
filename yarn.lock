@@ -2700,7 +2700,7 @@
   "resolved" "https://registry.npmjs.org/depd/-/depd-1.1.2.tgz"
   "version" "1.1.2"
 
-"derive-key@^1.0.0":
+"derive-key@^1.0.0", "derive-key@^1.0.1":
   "integrity" "sha512-7DHGLGvxFF8umw8NEGH3n9KKgEN8duk4Fiy4WmN3QgNKEogDhaNIsTDd5JVN7ilB8xw4ike1Q08z8UJSJ7hebA=="
   "resolved" "https://registry.npmjs.org/derive-key/-/derive-key-1.0.1.tgz"
   "version" "1.0.1"
@@ -5554,16 +5554,16 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^23.0.2":
-  "integrity" "sha512-Sn7JYN7z+p2z9mjgKfdYniBRwzBcJzfQ6cGcY5PiDX9GL1NVByN5w2R0nGfY/SHtWkbNqJt+/y4xqf6k14Rs7Q=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.2.tgz"
-  "version" "23.0.2"
+"list-fetch@^23.0.4":
+  "integrity" "sha512-z44SV9h24ZgKO39KceiqFsS0iSg67fkywqblz51QLCsWGFGDOZWSEXZDnr+rHE5RXP/yjNp9zLswkXr5kaUCDg=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.4.tgz"
+  "version" "23.0.4"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
     "range-parser" "^1.2.1"
     "stream-async-iterator" "^2.0.0"
-    "torrentz" "^6.0.7"
+    "torrentz" "^7.0.1"
 
 "load-ip-set@^2.2.1":
   "integrity" "sha512-G3hQXehU2LTOp52e+lPffpK4EvidfjwbvHaGqmFcp4ptiZagR4xFdL+D08kMX906dxeqZyWhfonEjdUxrWcldg=="
@@ -8210,14 +8210,15 @@
   "resolved" "https://registry.npmjs.org/torrent-piece/-/torrent-piece-2.0.1.tgz"
   "version" "2.0.1"
 
-"torrentz@^6.0.7":
-  "integrity" "sha512-fyad2g3OCD9HIdXLKy151Qkd/6MRhTqD8UsOPqyy+WoAfypQ/1nskxk45J+thje37F1HtvNA28nQqvhqPSo3cg=="
-  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-6.0.7.tgz"
-  "version" "6.0.7"
+"torrentz@^7.0.1":
+  "integrity" "sha512-wjlpXhsILRB7yLqNFCHTRB/mj7wnmoWEB3AE5VVuDD/JqjmXJn1O27Au79YuBG0GT45hz8GR3usPx7p5VO7Yww=="
+  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-7.0.1.tgz"
+  "version" "7.0.1"
   dependencies:
     "bencode" "^2.0.2"
     "busboy" "^1.6.0"
     "create-torrent" "^5.0.6"
+    "derive-key" "^1.0.1"
     "ed25519-supercop" "^2.0.1"
     "fs-extra" "^10.1.0"
     "glob" "^8.0.3"

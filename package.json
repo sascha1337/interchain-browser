@@ -190,7 +190,7 @@
     "gemini-handle": "^1.0.7",
     "gemini-to-html": "^1.0.0",
     "gopher-handle": "^1.0.3",
-    "list-fetch": "^23.0.2",
+    "list-fetch": "^23.0.4",
     "log-fetch": "^20.0.0",
     "mime": "^2.4.6",
     "onion-fetch": "^20.0.3",
