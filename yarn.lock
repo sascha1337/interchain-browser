@@ -3561,15 +3561,14 @@
   "resolved" "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
   "version" "0.5.2"
 
-"fs-chunk-store@^2.0.5":
-  "integrity" "sha512-z3c2BmyaHdQTtIVXJDQOvwZVWN2gNU//0IYKK2LuPr+cZyGoIrgDwI4iDASaTUyQbOBtyg/k6GuDZepB6jQIPw=="
-  "resolved" "https://registry.npmjs.org/fs-chunk-store/-/fs-chunk-store-2.0.5.tgz"
-  "version" "2.0.5"
+"fs-chunk-store@^3.0.1":
+  "integrity" "sha512-YrOFuXtUJQBkOZ2QBXBoIrjLJ/TNTpEaGnxV+TmL1qaW5J4ah6lxMh/X9pb3To+hbaoT/pRuBXLkkqoavQoQFw=="
+  "resolved" "https://registry.npmjs.org/fs-chunk-store/-/fs-chunk-store-3.0.1.tgz"
+  "version" "3.0.1"
   dependencies:
     "queue-microtask" "^1.2.2"
     "random-access-file" "^2.0.1"
     "randombytes" "^2.0.3"
-    "rimraf" "^3.0.0"
     "run-parallel" "^1.1.2"
     "thunky" "^1.0.1"
 
@@ -5554,16 +5553,16 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^23.0.5":
-  "integrity" "sha512-Eq0QxcOpCZxsPGjKcz2WNBt6c1ti8GaNdwjKOpXoDl6IC9/7NfcsrbZBdCn0E4iB3MWfdJwNHaSGYmGx/wPUKA=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.5.tgz"
-  "version" "23.0.5"
+"list-fetch@^23.0.6":
+  "integrity" "sha512-03Vl5vwkaSPmi0hJNz23hRDXvyOg3bNHUq11atsjGZKJK40S8Wm5a2HxTJ32lj/rgFuBrXwA3z+3LqE6FrnpTg=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-23.0.6.tgz"
+  "version" "23.0.6"
   dependencies:
     "make-fetch" "^2.3.1"
     "mime" "^3.0.0"
     "range-parser" "^1.2.1"
     "stream-async-iterator" "^2.0.0"
-    "torrentz" "^7.0.2"
+    "torrentz" "^7.0.3"
 
 "load-ip-set@^2.2.1":
   "integrity" "sha512-G3hQXehU2LTOp52e+lPffpK4EvidfjwbvHaGqmFcp4ptiZagR4xFdL+D08kMX906dxeqZyWhfonEjdUxrWcldg=="
@@ -7910,7 +7909,7 @@
   "resolved" "https://registry.npmjs.org/streamsearch/-/streamsearch-1.1.0.tgz"
   "version" "1.1.0"
 
-"streamx@^2.1.0", "streamx@^2.10.3", "streamx@^2.12.4", "streamx@^2.6.0", "streamx@^2.6.3", "streamx@^2.7.1":
+"streamx@^2.1.0", "streamx@^2.10.3", "streamx@^2.12.4", "streamx@^2.12.5", "streamx@^2.6.0", "streamx@^2.6.3", "streamx@^2.7.1":
   "integrity" "sha512-Y+nkFw57Z5JHT3zLlqFm3GccOy2FeYdUrrqita6Dd8kr/8enPn9GKa8IYf3/DmEKfZl/E2sWoSKUnd4qhonrgg=="
   "resolved" "https://registry.npmjs.org/streamx/-/streamx-2.12.5.tgz"
   "version" "2.12.5"
@@ -8210,10 +8209,10 @@
   "resolved" "https://registry.npmjs.org/torrent-piece/-/torrent-piece-2.0.1.tgz"
   "version" "2.0.1"
 
-"torrentz@^7.0.2":
-  "integrity" "sha512-KvBgYLDj1qginSf8GbVvXoIuj4yRlqwUTEqRD1rf6iJNmKgkrsMP/XlRpyWWkjIohMMy2BcEb/QwXEqkJLk02w=="
-  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-7.0.2.tgz"
-  "version" "7.0.2"
+"torrentz@^7.0.3":
+  "integrity" "sha512-/feZvw3PAhxygThBWRyecHYvU3PYbFaYT6i9rhfGJ2ZKML5bSFPl6PC6T3n3ie9v7+h8yCXoiWn30CqhFJC8BQ=="
+  "resolved" "https://registry.npmjs.org/torrentz/-/torrentz-7.0.3.tgz"
+  "version" "7.0.3"
   dependencies:
     "bencode" "^2.0.2"
     "busboy" "^1.6.0"
@@ -8580,9 +8579,9 @@
     "xtend" "^4.0.0"
 
 "webtorrent@^1.8.31":
-  "integrity" "sha512-PjtJn3sY4Uqb1PEuxID+Cps4AshUKZpo3EhkT14y1SySmMVHeSX2crwh1rXIGX3fJUeF0zM5iEg+Ic2mN4CFZw=="
-  "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.8.32.tgz"
-  "version" "1.8.32"
+  "integrity" "sha512-lFVMY1+GmTJlPAzEuWqQKP3/83c4bGFuJGPjI0lFRgYvUeQqxHv2Qwriz1SOK96MKuhMPKS9y4kf1CddZzoBjQ=="
+  "resolved" "https://registry.npmjs.org/webtorrent/-/webtorrent-1.9.1.tgz"
+  "version" "1.9.1"
   dependencies:
     "@webtorrent/http-node" "^1.3.0"
     "addr-to-ip-port" "^1.5.4"
@@ -8598,7 +8597,7 @@
     "end-of-stream" "^1.4.4"
     "escape-html" "^1.0.3"
     "fast-blob-stream" "^1.1.1"
-    "fs-chunk-store" "^2.0.5"
+    "fs-chunk-store" "^3.0.1"
     "immediate-chunk-store" "^2.2.0"
     "join-async-iterator" "^1.1.1"
     "load-ip-set" "^2.2.1"
@@ -8621,7 +8620,7 @@
     "simple-sha1" "^3.1.0"
     "speed-limiter" "^1.0.2"
     "stream-with-known-length-to-buffer" "^1.0.4"
-    "streamx" "^2.12.4"
+    "streamx" "^2.12.5"
     "throughput" "^1.0.1"
     "torrent-discovery" "^9.4.14"
     "torrent-piece" "^2.0.1"
