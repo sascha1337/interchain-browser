@@ -5530,10 +5530,10 @@
   "resolved" "https://registry.npmjs.org/limiter/-/limiter-1.1.5.tgz"
   "version" "1.1.5"
 
-"list-fetch@^24.0.8":
-  "integrity" "sha512-jInnpYSTxfQSDBxlymydeGupisrrnLRb22Jhoq3vFbftV40gltBNO5pyaiuBI27WS/lrisyzjmQHLlR28H78sQ=="
-  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-24.0.8.tgz"
-  "version" "24.0.8"
+"list-fetch@^24.0.9":
+  "integrity" "sha512-WL2FnOB7d4B217KH1r+uERpiSUAGe6wz46kCgHkIo5JN0aVrkonePRdKq2XaeJ/t9Lq3gXJMq9Xz/9xQg/ksgg=="
+  "resolved" "https://registry.npmjs.org/list-fetch/-/list-fetch-24.0.9.tgz"
+  "version" "24.0.9"
   dependencies:
     "make-fetch" "^2.3.4"
     "mime" "^3.0.0"
