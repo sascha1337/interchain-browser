@@ -32,17 +32,16 @@ module.exports = async function createHandler (fetchHandlers) {
     const parsed = new URL(url)
     const { pathname, hostname, searchParams } = parsed
     const toResolve = path.join(hostname, pathname)
+    const mainReq = !reqHeaders.accept || !reqHeaders.accept.includes('application/json')
+    const mainRes = mainReq ? 'text/html; charset=utf-8' : 'application/json; charset=utf-8'
     if(hostname === 'handle'){
       if(!searchParams.has('url')){
         return sendResponse({
           statusCode: 400,
-          headers: {'Content-Type': 'text/html; charset=utf-8'},
+          headers: {'Content-Type': mainRes},
           data: mainReq ? intoStream(`<html><head><title>Hybrid</title></head><body>Error</body></html>`) : intoStream('Error')
         })
       }
-
-      const mainReq = !reqHeaders.accept || !reqHeaders.accept.includes('application/json')
-      const mainRes = mainReq ? 'text/html; charset=utf-8' : 'application/json; charset=utf-8'
 
       try {
         const splitPath = pathname.split('/').filter(Boolean)
@@ -50,6 +49,7 @@ module.exports = async function createHandler (fetchHandlers) {
           if(splitPath[1] === 'remove'){
               const mainData = await bt(searchParams.get('url'), {method: 'DELETE'})
               let showRes = ''
+              showRes = JSON.stringify(useHead(mainData.headers)) + '\n'
               let seeRes
               const reader = mainData.body.getReader();
               while(!(seeRes = await reader.read()).done){
@@ -62,17 +62,20 @@ module.exports = async function createHandler (fetchHandlers) {
               })
           } else if(splitPath[1] === 'echo'){
             const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'true'}})
+            // for(const test of mainData.headers.entries()){
+            //   console.log(test)
+            // }
             return sendResponse({
               statusCode: mainData.status,
               headers: {'Content-Type': 'text/html; charset=utf-8'},
-              data: intoStream(`<html><head><title>Hybrid</title></head><body>Address: ${mainData.headers.get('X-Address')}\nSecret: ${mainData.headers.get('X-Secret')}\nHash: ${mainData.headers.get('X-Hash')}\nData: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>${JSON.stringify(useHead(mainData.headers))}</body></html>`)
             })
           } else if(splitPath[1] === 'unecho'){
             const mainData = await bt(searchParams.get('url'), {method: 'HEAD', headers: {'X-Echo': 'false'}})
             return sendResponse({
               statusCode: mainData.status,
               headers: {'Content-Type': 'text/html; charset=utf-8'},
-              data: intoStream(`<html><head><title>Hybrid</title></head><body>Address: ${mainData.headers.get('X-Address')}\nSecret: ${mainData.headers.get('X-Secret')}\nHash: ${mainData.headers.get('X-Hash')}\nData: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
+              data: intoStream(`<html><head><title>Hybrid</title></head><body>${JSON.stringify(useHead(mainData.headers))}</body></html>`)
             })
           } else {
             return sendResponse({
@@ -85,6 +88,7 @@ module.exports = async function createHandler (fetchHandlers) {
           if(splitPath[1] === 'remove'){
             const mainData = await ipfs(searchParams.get('url'), {method: 'DELETE'})
             let showRes = ''
+            showRes = JSON.stringify(useHead(mainData.headers)) + '\n'
             let seeRes
             const reader = mainData.body.getReader();
             while(!(seeRes = await reader.read()).done){
@@ -100,14 +104,14 @@ module.exports = async function createHandler (fetchHandlers) {
           return sendResponse({
             statusCode: mainData.status,
             headers: {'Content-Type': 'text/html; charset=utf-8'},
-            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>${JSON.stringify(useHead(mainData.headers))}</body></html>`)
           })
         } else if(splitPath[1] === 'unpin'){
           const mainData = await ipfs(searchParams.get('url'), {method: 'HEAD', headers: {'X-Pin': 'false'}})
           return sendResponse({
             statusCode: mainData.status,
             headers: {'Content-Type': 'text/html; charset=utf-8'},
-            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>${JSON.stringify(useHead(mainData.headers))}</body></html>`)
           })
         } else {
           return sendResponse({
@@ -120,6 +124,7 @@ module.exports = async function createHandler (fetchHandlers) {
           if(splitPath[1] === 'remove'){
             const mainData = await hyper(searchParams.get('url'), {method: 'DELETE'})
             let showRes = ''
+            showRes = JSON.stringify(useHead(mainData.headers)) + '\n'
             let seeRes
             const reader = mainData.body.getReader();
             while(!(seeRes = await reader.read()).done){
@@ -135,14 +140,14 @@ module.exports = async function createHandler (fetchHandlers) {
           return sendResponse({
             statusCode: mainData.status,
             headers: {'Content-Type': 'text/html; charset=utf-8'},
-            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>${JSON.stringify(useHead(mainData.headers))}</body></html>`)
           })
         } else if(splitPath[1] === 'unmount'){
           const mainData = await hyper(searchParams.get('url'), {method: 'HEAD', headers: {'X-Mount': 'false'}})
           return sendResponse({
             statusCode: mainData.status,
             headers: {'Content-Type': 'text/html; charset=utf-8'},
-            data: intoStream(`<html><head><title>Hybrid</title></head><body>Data: ${mainData.headers.get('X-Data')}\nLink: ${mainData.headers.get('X-Link')}</body></html>`)
+            data: intoStream(`<html><head><title>Hybrid</title></head><body>${JSON.stringify(useHead(mainData.headers))}</body></html>`)
           })
         } else {
             return sendResponse({
@@ -345,4 +350,12 @@ function intoStream (data) {
       this.push(null)
     }
   })
+}
+
+function useHead(head){
+  const test = {}
+  for(const pair of head.entries()){
+    test[pair[0]] = pair[1]
+  }
+  return test
 }
