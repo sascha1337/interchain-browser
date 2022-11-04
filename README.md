@@ -1,5 +1,5 @@
 # Hybrid Browser
-a web browser for all of us
+Browse the p2p networks, create and view p2p websites
 
 <p align="center" style="float: right">
 	<img src="./build/icon.png" width="333px">
