@@ -7,12 +7,12 @@ a web browser for all of us
 
 Hybrid is a p2p browser. it supports the following networks and protocols:
 
-bittorrent
-ipfs
-hyper
-tor
-gemini
-gopher
+bittorrent<br>
+ipfs<br>
+hyper<br>
+tor<br>
+gemini<br>
+gopher<br>
 
 It means you will be able to interact with p2p networks and view the p2p data on the browser. You will be able to create and upload p2p websites.
 
@@ -52,6 +52,8 @@ test
 
 </html>
 ```
+
+![Hybrid Animation](animation.gif)
 
 This makes it possible to create fully peer to peer websites, no middlemen and no servers.
 
