@@ -193,7 +193,7 @@
     "list-fetch": "^25.0.1",
     "log-fetch": "^20.0.5",
     "mime": "^2.4.6",
-    "onion-fetch": "^20.0.3",
+    "onion-fetch": "^20.0.5",
     "rc": "^1.2.8",
     "sanitize-filename": "^1.6.3",
     "scoped-fs": "^1.4.1",

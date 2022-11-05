@@ -1431,6 +1431,11 @@
   "resolved" "https://registry.npmjs.org/addr-to-ip-port/-/addr-to-ip-port-1.5.4.tgz"
   "version" "1.5.4"
 
+"address@^1.0.1":
+  "integrity" "sha512-B+6bi5D34+fDYENiH5qOlA0cV2rAGKuWZ9LeyUUehbXy8e0VS9e498yO0Jeeh+iM+6KbfudHTFjXw2MmJD4QRA=="
+  "resolved" "https://registry.npmjs.org/address/-/address-1.2.1.tgz"
+  "version" "1.2.1"
+
 "agent-base@~4.2.1":
   "integrity" "sha512-JVwXMr9nHYTUXsBFKUqhJwvlcYU/blreOEUkhNR2eXZIvwd+c+o5V4MgDPKWnMS/56awN3TRzIP+KoPn+roQtg=="
   "resolved" "https://registry.npmjs.org/agent-base/-/agent-base-4.2.1.tgz"
@@ -2726,6 +2731,14 @@
   "integrity" "sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g=="
   "resolved" "https://registry.npmjs.org/detect-node/-/detect-node-2.1.0.tgz"
   "version" "2.1.0"
+
+"detect-port@^1.5.1":
+  "integrity" "sha512-aBzdj76lueB6uUst5iAs7+0H/oOjqI5D16XUWxlWMIMROhcM0rfsNVk93zTngq1dDNpoXRr++Sus7ETAExppAQ=="
+  "resolved" "https://registry.npmjs.org/detect-port/-/detect-port-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "address" "^1.0.1"
+    "debug" "4"
 
 "dht-rpc@^4.8.0":
   "integrity" "sha512-gzZPsesqOh0Lj0GxjbNhPe42tppSt9qpcMXifcwtr2i3WnhgyhjlXTFrq/po9kl4X98M7+RxwmzpXzPt7hcXwA=="
@@ -6232,11 +6245,12 @@
   dependencies:
     "mimic-fn" "^2.1.0"
 
-"onion-fetch@^20.0.3":
-  "integrity" "sha512-cDTwvpGbAKT1ymkZITMb7YZ6ib++NOLWnSMfJh4AwtfBQNvEUOVO0ZZGfrTaG/zsq5w8lyb/7KaTeS4htUVyBA=="
-  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.3.tgz"
-  "version" "20.0.3"
+"onion-fetch@^20.0.5":
+  "integrity" "sha512-vh54DXospd+MG5wNY1ibBi+iftrV+hBmaFV8zufZ0F8S+pSfPXB1KlcvXpzOA/NKVj7UeOLkXCgFZXCv4iQWnw=="
+  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.5.tgz"
+  "version" "20.0.5"
   dependencies:
+    "detect-port" "^1.5.1"
     "tor-axios" "^1.0.11"
 
 "optionator@^0.8.3":
