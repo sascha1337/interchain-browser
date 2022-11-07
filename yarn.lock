@@ -3662,10 +3662,10 @@
   "resolved" "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.3.tgz"
   "version" "1.2.3"
 
-"gemini-handle@^1.0.7":
-  "integrity" "sha512-PtYWViE2GuF218LtI6ydFQYwwNQ/XXDWK4UDo9b0N2h12NmpSdrdidoC1uGlCa8YG2PktcMlhrr5oKGr1Sm0aA=="
-  "resolved" "https://registry.npmjs.org/gemini-handle/-/gemini-handle-1.0.7.tgz"
-  "version" "1.0.7"
+"gemini-handle@^1.0.9":
+  "integrity" "sha512-+gA84qavBzCtzNItvAnObF2gZ+wbQyjpPC4QbbJpdQRii4dJvaTYp7dZlu13dnLN8idOX5oVhBwg0TxlNwHKHw=="
+  "resolved" "https://registry.npmjs.org/gemini-handle/-/gemini-handle-1.0.9.tgz"
+  "version" "1.0.9"
   dependencies:
     "@derhuerst/gemini" "^1.3.0"
     "make-fetch" "^2.3.1"
@@ -3830,10 +3830,10 @@
   dependencies:
     "define-properties" "^1.1.3"
 
-"gopher-handle@^1.0.3":
-  "integrity" "sha512-tjeJ9pbgLCHUA+adybau3cfbgTgXExuUP57ijdSp7ue7QevT8pdfeBtJLm7MwAu4+mL7rXQUowhECTpAY33w9w=="
-  "resolved" "https://registry.npmjs.org/gopher-handle/-/gopher-handle-1.0.3.tgz"
-  "version" "1.0.3"
+"gopher-handle@^1.0.4":
+  "integrity" "sha512-itI2XKHfiEWRDBe3k33JfeZQcdkHAbMGC48miCZnybWNOvmVMxPeAsTO/YK2aYbfIk2fN90vBIWbAhuhtgDyyg=="
+  "resolved" "https://registry.npmjs.org/gopher-handle/-/gopher-handle-1.0.4.tgz"
+  "version" "1.0.4"
   dependencies:
     "gopher-lib" "^0.2.0"
     "make-fetch" "^2.3.1"
@@ -6245,10 +6245,10 @@
   dependencies:
     "mimic-fn" "^2.1.0"
 
-"onion-fetch@^20.0.5":
-  "integrity" "sha512-vh54DXospd+MG5wNY1ibBi+iftrV+hBmaFV8zufZ0F8S+pSfPXB1KlcvXpzOA/NKVj7UeOLkXCgFZXCv4iQWnw=="
-  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.5.tgz"
-  "version" "20.0.5"
+"onion-fetch@^20.0.6":
+  "integrity" "sha512-6BsRJ3HY/Kd03HKWJ5FlOhgcwxhTUNWc44IuT+hDFCjKroDicK3K24R2hmIMJ6BTwYPX7nt/jSzdFqTmXLMcOw=="
+  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.6.tgz"
+  "version" "20.0.6"
   dependencies:
     "detect-port" "^1.5.1"
     "tor-axios" "^1.0.11"
