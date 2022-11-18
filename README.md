@@ -57,5 +57,10 @@ test
 
 This makes it possible to create fully peer to peer websites, no middlemen and no servers.
 
+Join the chat
+[Matrix](https://matrix.to/#/#hybridrelay:matrix.org)
+[Discord](https://discord.gg/E8aENrvep2)
+[Gitter](https://gitter.im/HybridBrowser/chat)
+
 This project was forked from [Agregore Browser](https://github.com/AgregoreWeb/agregore-browser).
 Special thanks and shout out to [RangerMauve](https://github.com/RangerMauve), they are the creator and developer of Agregore.
