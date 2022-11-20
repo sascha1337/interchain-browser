@@ -2200,10 +2200,10 @@
   "resolved" "https://registry.npmjs.org/chromium-pickle-js/-/chromium-pickle-js-0.2.0.tgz"
   "version" "0.2.0"
 
-"chunk-fetch@^21.0.1":
-  "integrity" "sha512-8HT+ffO4+lS54z7uSmDhg9YLCL48hfvSIUk0hdFN2la8UOBRo1TslGvkXMtK/rWi0OUujVkJJPxQ0wRt6aG0Ew=="
-  "resolved" "https://registry.npmjs.org/chunk-fetch/-/chunk-fetch-21.0.1.tgz"
-  "version" "21.0.1"
+"chunk-fetch@^21.0.2":
+  "integrity" "sha512-S+3hHV3O3QNNhBg3ISC46ymmAwyYUfFzBNJgeob/TXBDiHy9gVauE+Q0zec5l+NF+K94v6VVyMBkn6FK1Tnq+w=="
+  "resolved" "https://registry.npmjs.org/chunk-fetch/-/chunk-fetch-21.0.2.tgz"
+  "version" "21.0.2"
   dependencies:
     "busboy" "^1.6.0"
     "file-type" "^17.1.1"
@@ -2211,6 +2211,7 @@
     "is-ipfs" "^7.0.3"
     "make-fetch" "^2.3.4"
     "mime" "^2.4.6"
+    "multiformats" "^10.0.2"
     "range-parser" "^1.2.1"
 
 "chunk-store-stream@^4.3.0":
@@ -5967,12 +5968,47 @@
     "dns-packet" "^5.2.2"
     "thunky" "^1.0.2"
 
-"multiformats@^10.0.0", "multiformats@^10.0.1":
+"multiformats@^10.0.0", "multiformats@^10.0.1", "multiformats@^10.0.2":
   "integrity" "sha512-nJEHLFOYhO4L+aNApHhCnWqa31FyqAHv9Q77AhmwU3KsM2f1j7tuJpCk5ByZ33smzycNCpSG5klNIejIyfFx2A=="
   "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-10.0.2.tgz"
   "version" "10.0.2"
 
-"multiformats@^9.0.4", "multiformats@^9.1.0", "multiformats@^9.4.2", "multiformats@^9.4.5", "multiformats@^9.5.1", "multiformats@^9.5.4", "multiformats@^9.6.3", "multiformats@^9.6.4":
+"multiformats@^9.0.4":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.1.0":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.4.2":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.4.5":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.5.1":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.5.4":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.6.3":
+  "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
+  "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
+  "version" "9.9.0"
+
+"multiformats@^9.6.4":
   "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
   "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
   "version" "9.9.0"

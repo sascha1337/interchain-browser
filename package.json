@@ -182,7 +182,7 @@
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "chunk-fetch": "^21.0.1",
+    "chunk-fetch": "^21.0.2",
     "create-desktop-shortcuts": "^1.7.0",
     "data-uri-to-buffer": "^3.0.1",
     "electron-extended-webextensions": "github:ducksandgoats/electron-extended-WebExtensions",
