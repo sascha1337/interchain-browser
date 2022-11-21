@@ -81,6 +81,7 @@ class WindowManager extends EventEmitter {
       listActions,
       ...opts
     })
+    // window.webContents.openDevTools()
 
     console.log('created window', window.id)
     this.windows.add(window)
