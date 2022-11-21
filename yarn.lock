@@ -1436,14 +1436,7 @@
   "resolved" "https://registry.npmjs.org/address/-/address-1.2.1.tgz"
   "version" "1.2.1"
 
-"agent-base@~4.2.1":
-  "integrity" "sha512-JVwXMr9nHYTUXsBFKUqhJwvlcYU/blreOEUkhNR2eXZIvwd+c+o5V4MgDPKWnMS/56awN3TRzIP+KoPn+roQtg=="
-  "resolved" "https://registry.npmjs.org/agent-base/-/agent-base-4.2.1.tgz"
-  "version" "4.2.1"
-  dependencies:
-    "es6-promisify" "^5.0.0"
-
-"agent-base@6":
+"agent-base@^6.0.2", "agent-base@6":
   "integrity" "sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ=="
   "resolved" "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
   "version" "6.0.2"
@@ -1639,12 +1632,14 @@
   "resolved" "https://registry.npmjs.org/atomic-batcher/-/atomic-batcher-1.0.2.tgz"
   "version" "1.0.2"
 
-"axios@^0.25.0":
-  "integrity" "sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-0.25.0.tgz"
-  "version" "0.25.0"
+"axios@^1.1.3":
+  "integrity" "sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-1.1.3.tgz"
+  "version" "1.1.3"
   dependencies:
-    "follow-redirects" "^1.14.7"
+    "follow-redirects" "^1.15.0"
+    "form-data" "^4.0.0"
+    "proxy-from-env" "^1.1.0"
 
 "b4a@^1.0.1", "b4a@^1.1.1", "b4a@^1.3.1", "b4a@^1.6.0":
   "integrity" "sha512-AsKjNhz72yxteo/0EtQEiwkMUgk/tGmycXlbG4g3Ard2/ULtNLUykGOkeK0egmN27h0xMAhb76jYccW+XTBExA=="
@@ -3081,18 +3076,6 @@
   "resolved" "https://registry.npmjs.org/es6-error/-/es6-error-4.1.1.tgz"
   "version" "4.1.1"
 
-"es6-promise@^4.0.3":
-  "integrity" "sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w=="
-  "resolved" "https://registry.npmjs.org/es6-promise/-/es6-promise-4.2.8.tgz"
-  "version" "4.2.8"
-
-"es6-promisify@^5.0.0":
-  "integrity" "sha512-C+d6UdsYDk0lMebHNR4S2NybQMMngAOnOwYBQjTOiv0MkoJMP0Myw2mgpDLBcpfCmRLxyFqYhS/CfOENq4SJhQ=="
-  "resolved" "https://registry.npmjs.org/es6-promisify/-/es6-promisify-5.0.0.tgz"
-  "version" "5.0.0"
-  dependencies:
-    "es6-promise" "^4.0.3"
-
 "es6-promisify@^6.0.0":
   "integrity" "sha512-HBL8I3mIki5C1Cc9QjKUenHtnG0A5/xA8Q/AllRcfiwl2CZFXGK7ddBiCoRwAix4i2KxcQfjtIVcrVbB3vbmwg=="
   "resolved" "https://registry.npmjs.org/es6-promisify/-/es6-promisify-6.1.1.tgz"
@@ -3543,7 +3526,7 @@
   "resolved" "https://registry.npmjs.org/fnv1a/-/fnv1a-1.1.1.tgz"
   "version" "1.1.1"
 
-"follow-redirects@^1.14.7":
+"follow-redirects@^1.15.0":
   "integrity" "sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   "version" "1.15.2"
@@ -3662,6 +3645,17 @@
   "integrity" "sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ=="
   "resolved" "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.3.tgz"
   "version" "1.2.3"
+
+"garlic-fetch@^21.0.2":
+  "integrity" "sha512-Vzwr14/cHZyPAVjamSugWkPNO3RxzElKK4FCXvHKMmYYiaRqWkjr73HQkdyvRnhHOsAT81Sv5eheb+RuCQeTLg=="
+  "resolved" "https://registry.npmjs.org/garlic-fetch/-/garlic-fetch-21.0.2.tgz"
+  "version" "21.0.2"
+  dependencies:
+    "axios" "^1.1.3"
+    "detect-port" "^1.5.1"
+    "http-proxy-agent" "^5.0.0"
+    "https-proxy-agent" "^5.0.1"
+    "make-fetch" "^2.3.4"
 
 "gemini-handle@^1.0.9":
   "integrity" "sha512-+gA84qavBzCtzNItvAnObF2gZ+wbQyjpPC4QbbJpdQRii4dJvaTYp7dZlu13dnLN8idOX5oVhBwg0TxlNwHKHw=="
@@ -4019,7 +4013,7 @@
     "quick-lru" "^5.1.1"
     "resolve-alpn" "^1.0.0"
 
-"https-proxy-agent@^5.0.0":
+"https-proxy-agent@^5.0.0", "https-proxy-agent@^5.0.1":
   "integrity" "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA=="
   "resolved" "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz"
   "version" "5.0.1"
@@ -4385,10 +4379,15 @@
   dependencies:
     "ip" "^1.1.5"
 
-"ip@^1.1.5", "ip@1.1.5":
+"ip@^1.1.5":
   "integrity" "sha512-rBtCAQAJm8A110nbwn6YdveUnuZH3WrC36IwkRXxDnq53JvXA2NVQvB7IHyKomxK1MJ4VDNw3UtFDdXQ+AvLYA=="
   "resolved" "https://registry.npmjs.org/ip/-/ip-1.1.5.tgz"
   "version" "1.1.5"
+
+"ip@^2.0.0":
+  "integrity" "sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ=="
+  "resolved" "https://registry.npmjs.org/ip/-/ip-2.0.0.tgz"
+  "version" "2.0.0"
 
 "ipaddr.js@^2.0.0", "ipaddr.js@^2.0.1", "ipaddr.js@>= 0.1.5":
   "integrity" "sha512-1qTgH9NG+IIJ4yfKs2e6Pp1bZg8wbDbKHT21HrLIeYBTRLgMYKnMTPAuI3Lcs61nfx5h1xlXnbJtH1kX5/d/ng=="
@@ -6273,13 +6272,15 @@
   dependencies:
     "mimic-fn" "^2.1.0"
 
-"onion-fetch@^20.0.6":
-  "integrity" "sha512-6BsRJ3HY/Kd03HKWJ5FlOhgcwxhTUNWc44IuT+hDFCjKroDicK3K24R2hmIMJ6BTwYPX7nt/jSzdFqTmXLMcOw=="
-  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.6.tgz"
-  "version" "20.0.6"
+"onion-fetch@^20.0.9":
+  "integrity" "sha512-/5j1FAvKDPnXNIMfxd1maHpsmR61nI4Bu5LkgY8CO6KuCTAGicNrWrTHSQzV5iW0AHxofLefHbUPa6Mzbhzt5A=="
+  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.9.tgz"
+  "version" "20.0.9"
   dependencies:
+    "axios" "^1.1.3"
     "detect-port" "^1.5.1"
-    "tor-axios" "^1.0.11"
+    "make-fetch" "^2.3.4"
+    "socks-proxy-agent" "^7.0.0"
 
 "optionator@^0.8.3":
   "integrity" "sha512-+IW9pACdk3XWmmTXG8m3upGUJst5XRGzxMRjXzAuJ1XnIFNvfhjjIuYkDvysnPQ7qzqVzLt78BCruntqRhWQbA=="
@@ -6773,6 +6774,11 @@
   dependencies:
     "protobufjs" "^7.0.0"
     "uint8arraylist" "^2.3.2"
+
+"proxy-from-env@^1.1.0":
+  "integrity" "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
+  "resolved" "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz"
+  "version" "1.1.0"
 
 "pump@^3.0.0":
   "integrity" "sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww=="
@@ -7648,7 +7654,7 @@
     "astral-regex" "^1.0.0"
     "is-fullwidth-code-point" "^2.0.0"
 
-"smart-buffer@^4.1.0":
+"smart-buffer@^4.2.0":
   "integrity" "sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg=="
   "resolved" "https://registry.npmjs.org/smart-buffer/-/smart-buffer-4.2.0.tgz"
   "version" "4.2.0"
@@ -7701,21 +7707,22 @@
     "@socket.io/component-emitter" "~3.1.0"
     "debug" "~4.3.1"
 
-"socks-proxy-agent@^4.0.2":
-  "integrity" "sha512-NT6syHhI9LmuEMSK6Kd2V7gNv5KFZoLE7V5udWmn0de+3Mkj3UMA/AJPLyeNUVmElCurSHtUdM3ETpR3z770Wg=="
-  "resolved" "https://registry.npmjs.org/socks-proxy-agent/-/socks-proxy-agent-4.0.2.tgz"
-  "version" "4.0.2"
+"socks-proxy-agent@^7.0.0":
+  "integrity" "sha512-Fgl0YPZ902wEsAyiQ+idGd1A7rSFx/ayC1CQVMw5P+EQx2V0SgpGtf6OKFhVjPflPUl9YMmEOnmfjCdMUsygww=="
+  "resolved" "https://registry.npmjs.org/socks-proxy-agent/-/socks-proxy-agent-7.0.0.tgz"
+  "version" "7.0.0"
   dependencies:
-    "agent-base" "~4.2.1"
-    "socks" "~2.3.2"
+    "agent-base" "^6.0.2"
+    "debug" "^4.3.3"
+    "socks" "^2.6.2"
 
-"socks@^2.0.0", "socks@~2.3.2":
-  "integrity" "sha512-o5t52PCNtVdiOvzMry7wU4aOqYWL0PeCXRWBEiJow4/i/wr+wpsJQ9awEu1EonLIqsfGd5qSgDdxEOvCdmBEpA=="
-  "resolved" "https://registry.npmjs.org/socks/-/socks-2.3.3.tgz"
-  "version" "2.3.3"
+"socks@^2.0.0", "socks@^2.6.2":
+  "integrity" "sha512-7maUZy1N7uo6+WVEX6psASxtNlKaNVMlGQKkG/63nEDdLOWNbiUMoLK7X4uYoLhQstau72mLgfEWcXcwsaHbYQ=="
+  "resolved" "https://registry.npmjs.org/socks/-/socks-2.7.1.tgz"
+  "version" "2.7.1"
   dependencies:
-    "ip" "1.1.5"
-    "smart-buffer" "^4.1.0"
+    "ip" "^2.0.0"
+    "smart-buffer" "^4.2.0"
 
 "sodium-javascript@~0.8.0":
   "integrity" "sha512-rEBzR5mPxPES+UjyMDvKPIXy9ImF17KOJ32nJNi9uIquWpS/nfj+h6m05J5yLJaGXjgM72LmQoUbWZVxh/rmGg=="
@@ -8196,14 +8203,6 @@
   dependencies:
     "@tokenizer/token" "^0.3.0"
     "ieee754" "^1.2.1"
-
-"tor-axios@^1.0.11":
-  "integrity" "sha512-Qq4/zKvOhRsCvRwEJMfr3tstfdCXkPCt4AsNvXdVTz6i+cyivxyBc3LBvgfCLfQKm8FRGODGz/IL1TUvOAyIfw=="
-  "resolved" "https://registry.npmjs.org/tor-axios/-/tor-axios-1.0.11.tgz"
-  "version" "1.0.11"
-  dependencies:
-    "axios" "^0.25.0"
-    "socks-proxy-agent" "^4.0.2"
 
 "torrent-discovery@^9.4.14":
   "integrity" "sha512-IyzlrHctvqqKtN8Y2BMxNL3d2FLazs6pC2yzKOHJlXWYUFkLpZhZSaSZcAkfmZXgdjwq59N2umr1przsRDMzkA=="
