@@ -37,6 +37,7 @@ const {
 
 const createHyperHandler = require('./hyper-protocol')
 const createTorHandler = require('./tor-protocol')
+const createIipHandler = require('./iip-protocol')
 const createIPFSHandler = require('./ipfs-protocol')
 const createBrowserHandler = require('./browser-protocol')
 const createGeminiHandler = require('./gemini-protocol')
@@ -63,6 +64,8 @@ function registerPrivileges () {
     { scheme: 'bt', privileges: P2P_PRIVILEGES },
     { scheme: 'tor', privileges: P2P_PRIVILEGES },
     { scheme: 'tors', privileges: P2P_PRIVILEGES },
+    { scheme: 'iip', privileges: P2P_PRIVILEGES },
+    { scheme: 'iips', privileges: P2P_PRIVILEGES },
     { scheme: 'hybrid', privileges: BROWSER_PRIVILEGES },
     { scheme: 'magnet', privileges: LOW_PRIVILEGES },
     { scheme: 'gopher', privileges: P2P_PRIVILEGES },
@@ -79,6 +82,8 @@ async function setupProtocols (session) {
   app.setAsDefaultProtocolClient('bt')
   app.setAsDefaultProtocolClient('tor')
   app.setAsDefaultProtocolClient('tors')
+  app.setAsDefaultProtocolClient('iip')
+  app.setAsDefaultProtocolClient('iips')
   app.setAsDefaultProtocolClient('gopher')
   app.setAsDefaultProtocolClient('gemini')
 
@@ -106,6 +111,12 @@ async function setupProtocols (session) {
   globalProtocol.registerStreamProtocol('tor', torHandler)
   sessionProtocol.registerStreamProtocol('tors', torHandler)
   globalProtocol.registerStreamProtocol('tors', torHandler)
+
+  const iipHandler = await createIipHandler(torOptions, session)
+  sessionProtocol.registerStreamProtocol('iip', iipHandler)
+  globalProtocol.registerStreamProtocol('iip', iipHandler)
+  sessionProtocol.registerStreamProtocol('iips', iipHandler)
+  globalProtocol.registerStreamProtocol('iips', iipHandler)
 
   const gopherProtocolHandler = await createGopherHandler()
   sessionProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)

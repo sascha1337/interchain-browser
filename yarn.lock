@@ -3646,10 +3646,10 @@
   "resolved" "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.3.tgz"
   "version" "1.2.3"
 
-"garlic-fetch@^21.0.2":
-  "integrity" "sha512-Vzwr14/cHZyPAVjamSugWkPNO3RxzElKK4FCXvHKMmYYiaRqWkjr73HQkdyvRnhHOsAT81Sv5eheb+RuCQeTLg=="
-  "resolved" "https://registry.npmjs.org/garlic-fetch/-/garlic-fetch-21.0.2.tgz"
-  "version" "21.0.2"
+"garlic-fetch@^21.0.3":
+  "integrity" "sha512-sJKN0UGPxsKTvfj9G9TzI/iMntl4LoTQwZZx/5CuK3qk71bdMQI3oV+ZrmaI+cX2OMk/7iFl9c+jnkY9KE5Xiw=="
+  "resolved" "https://registry.npmjs.org/garlic-fetch/-/garlic-fetch-21.0.3.tgz"
+  "version" "21.0.3"
   dependencies:
     "axios" "^1.1.3"
     "detect-port" "^1.5.1"
@@ -6272,10 +6272,10 @@
   dependencies:
     "mimic-fn" "^2.1.0"
 
-"onion-fetch@^20.0.9":
-  "integrity" "sha512-/5j1FAvKDPnXNIMfxd1maHpsmR61nI4Bu5LkgY8CO6KuCTAGicNrWrTHSQzV5iW0AHxofLefHbUPa6Mzbhzt5A=="
-  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-20.0.9.tgz"
-  "version" "20.0.9"
+"onion-fetch@^21.0.0":
+  "integrity" "sha512-ssVz5ws6qM/dQxxqvTMMZMSFY9Xy7FLizHfxErPYDvqp5o7j27W1xlUUhAlOzBiFxrNBRfmJbZvwxN6WOdCKOQ=="
+  "resolved" "https://registry.npmjs.org/onion-fetch/-/onion-fetch-21.0.0.tgz"
+  "version" "21.0.0"
   dependencies:
     "axios" "^1.1.3"
     "detect-port" "^1.5.1"
