@@ -64,5 +64,9 @@ module.exports = require('rc')('hybrid', {
     folder: DEFAULT_BT_DIR
   },
 
-  torOptions: {}
+  torOptions: {},
+
+  iipOptions: {},
+
+  ouiOptions: {}
 })

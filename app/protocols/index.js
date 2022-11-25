@@ -32,12 +32,15 @@ const {
   ipfsOptions,
   torOptions,
   hyperOptions,
-  btOptions
+  btOptions,
+  iipOptions,
+  ouiOptions
 } = require('../config')
 
 const createHyperHandler = require('./hyper-protocol')
 const createTorHandler = require('./tor-protocol')
 const createIipHandler = require('./iip-protocol')
+const createOuiHandler = require('./oui-protocol')
 const createIPFSHandler = require('./ipfs-protocol')
 const createBrowserHandler = require('./browser-protocol')
 const createGeminiHandler = require('./gemini-protocol')
@@ -66,6 +69,8 @@ function registerPrivileges () {
     { scheme: 'tors', privileges: P2P_PRIVILEGES },
     { scheme: 'iip', privileges: P2P_PRIVILEGES },
     { scheme: 'iips', privileges: P2P_PRIVILEGES },
+    { scheme: 'oui', privileges: P2P_PRIVILEGES },
+    { scheme: 'ouis', privileges: P2P_PRIVILEGES },
     { scheme: 'hybrid', privileges: BROWSER_PRIVILEGES },
     { scheme: 'magnet', privileges: LOW_PRIVILEGES },
     { scheme: 'gopher', privileges: P2P_PRIVILEGES },
@@ -84,6 +89,8 @@ async function setupProtocols (session) {
   app.setAsDefaultProtocolClient('tors')
   app.setAsDefaultProtocolClient('iip')
   app.setAsDefaultProtocolClient('iips')
+  app.setAsDefaultProtocolClient('oui')
+  app.setAsDefaultProtocolClient('ouis')
   app.setAsDefaultProtocolClient('gopher')
   app.setAsDefaultProtocolClient('gemini')
 
@@ -112,11 +119,17 @@ async function setupProtocols (session) {
   sessionProtocol.registerStreamProtocol('tors', torHandler)
   globalProtocol.registerStreamProtocol('tors', torHandler)
 
-  const iipHandler = await createIipHandler(torOptions, session)
+  const iipHandler = await createIipHandler(iipOptions, session)
   sessionProtocol.registerStreamProtocol('iip', iipHandler)
   globalProtocol.registerStreamProtocol('iip', iipHandler)
   sessionProtocol.registerStreamProtocol('iips', iipHandler)
   globalProtocol.registerStreamProtocol('iips', iipHandler)
+
+  const ouiHandler = await createOuiHandler(ouiOptions, session)
+  sessionProtocol.registerStreamProtocol('oui', ouiHandler)
+  globalProtocol.registerStreamProtocol('oui', ouiHandler)
+  sessionProtocol.registerStreamProtocol('ouis', ouiHandler)
+  globalProtocol.registerStreamProtocol('ouis', ouiHandler)
 
   const gopherProtocolHandler = await createGopherHandler()
   sessionProtocol.registerStreamProtocol('gopher', gopherProtocolHandler)
